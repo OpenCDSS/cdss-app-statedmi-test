@@ -1,5 +1,5 @@
 # Test setting a processor property to a string, using ${Property} to refer to another property
-StartLog(LogFile="Results/Test_SetProperty_String_Property.TSTool.log")
+StartLog(LogFile="Results/Test_SetProperty_String_Property.StateDMI.log")
 RemoveFile(InputFile="Results/Test_SetProperty_String_Property_out.txt",IfNotFound=Ignore)
 SetProperty(PropertyName="StringProp1",PropertyType=String,PropertyValue="PropertyValue1")
 SetProperty(PropertyName="StringProp",PropertyType=String,PropertyValue="Property is ${StringProp1}")

@@ -1,0 +1,13 @@
+# Test getting an old Netscape License file, using ${Property} notation
+# This file may not be totally static over time but likely will be.
+# If the file changes, find something else.
+# Disable because not reliable
+# @enabled False
+StartLog(LogFile="Results/Test_WebGet_License_Property.StateDMI.log")
+RemoveFile(InputFile="Results\Test_WebGet_License_Property.md",IfNotFound=Ignore)
+SetProperty(PropertyName="Host",PropertyType=String,PropertyValue="https://raw.githubusercontent.com")
+SetProperty(PropertyName="File",PropertyType=String,PropertyValue="Test_WebGet_License_Property.md")
+# Uncomment the following command to regenerate the expected results file.
+# WebGet(URI="${Host}/OpenCDSS/cdss-app-statedmi-test/master/LICENSE.md",LocalFile="ExpectedResults\${File}")
+WebGet(URI="${Host}/OpenCDSS/cdss-app-statedmi-test/master/LICENSE.md",LocalFile="Results\${File}")
+CompareFiles(InputFile1="ExpectedResults\Test_WebGet_License_Property.md",InputFile2="Results\Test_WebGet_License_Property.md",IfDifferent=Warn)

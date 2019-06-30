@@ -1,5 +1,5 @@
 # Test formatting a string using specified widths
-StartLog(LogFile="Results/Test_ManipulateTableString_Columns_Widths.TSTool.log")
+StartLog(LogFile="Results/Test_ManipulateTableString_Columns_Widths.StateDMI.log")
 RemoveFile(InputFile="Results/Test_ManipulateTableString_Columns_Widths_out.dv",IfNotFound=Ignore)
 # Generate some table data but converting time series to table
 ReadTableFromDelimitedFile(TableID="Table1",InputFile="Data\testdata2.csv")

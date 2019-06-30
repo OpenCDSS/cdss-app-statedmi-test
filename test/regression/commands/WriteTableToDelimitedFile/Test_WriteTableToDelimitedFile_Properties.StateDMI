@@ -1,7 +1,7 @@
 # Test writing a delimited file using default parameters and with column headers
 # - Specify the output file using ${Property}
 # - Specify the table to write using ${Property}
-StartLog(LogFile="Results/Test_WriteTableToDelimitedFile_Properties.TSTool.log")
+StartLog(LogFile="Results/Test_WriteTableToDelimitedFile_Properties.StateDMIl.log")
 RemoveFile(InputFile="Results/Test_WriteTableToDelimitedFile_Properties_out.csv",IfNotFound=Ignore)
 SetProperty(PropertyName="TestTableID",PropertyType=String,PropertyValue="KNN_Aspinall")
 SetProperty(PropertyName="TestInputFile",PropertyType=String,PropertyValue="Data\flow_sequence_dataset_WithHeaders.csv")

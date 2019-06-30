@@ -1,7 +1,7 @@
 # Test listing files
 # - include some files
 # - then include some others and append
-StartLog(LogFile="Results/Test_ListFiles_Append.TSTool.log")
+StartLog(LogFile="Results/Test_ListFiles_Append.StateDMI.log")
 # Remove the output file before the test
 RemoveFile(InputFile="Results/Test_ListFiles_Append_out.csv",IfNotFound=Ignore)
 ListFiles(Folder="Data",IncludeFiles="file*.txt",ExcludeFiles="file4*",TableID="FileList",Append=False)

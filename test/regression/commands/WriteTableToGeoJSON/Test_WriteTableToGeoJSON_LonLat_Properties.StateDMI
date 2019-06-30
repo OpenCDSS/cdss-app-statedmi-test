@@ -1,7 +1,7 @@
 # Test writing a table to a GeoJSON file
 # - point coordinates in lon and lat columns
 # - specify command parameters using ${Property}
-StartLog(LogFile="Results/Test_WriteTableToGeoJSON_LonLat_Properties.TSTool.log")
+StartLog(LogFile="Results/Test_WriteTableToGeoJSON_LonLat_Properties.StateDMI.log")
 RemoveFile(InputFile="Results/Test_WriteTableToGeoJSON_LonLat_Properties_out.csv",IfNotFound=Ignore)
 SetProperty(PropertyName="TestTableID",PropertyType=String,PropertyValue="StationMeta")
 SetProperty(PropertyName="TestOutputFile",PropertyType=String,PropertyValue="Test_WriteTableToGeoJSON_LonLat_Properties_out.json")

@@ -1,5 +1,5 @@
 # Test setting a processor property to a date/time
-StartLog(LogFile="Results/Test_SetProperty_DateTime.TSTool.log")
+StartLog(LogFile="Results/Test_SetProperty_DateTime.StateDMI.log")
 RemoveFile(InputFile="Results/Test_SetProperty_DateTime_out.txt",IfNotFound=Ignore)
 SetProperty(PropertyName="DateProp",PropertyType=DateTime,PropertyValue="2011-01-23")
 # Uncomment the following two commands to regenerate the expected results file.

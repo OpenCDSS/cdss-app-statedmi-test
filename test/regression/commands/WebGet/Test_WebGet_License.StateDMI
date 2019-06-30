@@ -1,0 +1,11 @@
+# Test getting an old Netscape License file
+# This file may not be totally static over time but likely will be.
+# If the file changes, find something else.
+# Disable because not reliable
+# @enabled False
+StartLog(LogFile="Results/Test_WebGet_NetscapeLicense.StateDMI.log")
+RemoveFile(InputFile="Results\Test_WebGet_License.md",IfNotFound=Ignore)
+# Uncomment the following command to regenerate the expected results file.
+# WebGet(URI="https://raw.githubusercontent.com/OpenCDSS/cdss-app-statedmi-test/master/LICENSE.md",LocalFile="ExpectedResults\Test_WebGet_License.md")
+WebGet(URI="https://raw.githubusercontent.com/OpenCDSS/cdss-app-statedmi-test/master/LICENSE.md",LocalFile="Results\Test_WebGet_License.md")
+CompareFiles(InputFile1="ExpectedResults\Test_WebGet_License.md",InputFile2="Results\Test_WebGet_License.md",IfDifferent=Warn)

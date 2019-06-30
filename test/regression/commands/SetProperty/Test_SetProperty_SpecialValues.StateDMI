@@ -1,6 +1,6 @@
 # Test setting processor property special values
 # - set special values
-StartLog(LogFile="Results/Test_SetProperty_SpecialValues.TSTool.log")
+StartLog(LogFile="Results/Test_SetProperty_SpecialValues.StateDMI.log")
 RemoveFile(InputFile="Results/Test_SetProperty_SpecialValues_out.txt",IfNotFound=Ignore)
 SetProperty(PropertyName="DoubleProp_NaN",PropertyType=Double,SetNaN=True)
 SetProperty(PropertyName="StringProp_Empty",PropertyType=String,SetEmpty=True)

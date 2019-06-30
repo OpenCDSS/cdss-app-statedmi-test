@@ -1,7 +1,7 @@
 # Test creating a new Excel workbook and writing a simple definitions table
 # - specify the Excel file with ${Property}
 # - specify the worksheet with ${Property}
-StartLog(LogFile="Results/Test_NewExcelWorkbook_Definitions_Properties.TSTool.log")
+StartLog(LogFile="Results/Test_NewExcelWorkbook_Definitions_Properties.StateDMI.log")
 SetProperty(PropertyName="TestOutputFile",PropertyType=String,PropertyValue="Results/Test_NewExcelWorkbook_Definitions_Properties_out.xlsx")
 SetProperty(PropertyName="TestWorksheets",PropertyType=String,PropertyValue="TestSheet1,TestSheet2")
 RemoveFile(InputFile="Results/Test_NewExcelWorkbook_Definitions_Properties_out.xlsx",IfNotFound=Ignore)

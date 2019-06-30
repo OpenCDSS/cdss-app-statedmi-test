@@ -1,6 +1,6 @@
 # Test listing files
 # - list all the files in the folder
-StartLog(LogFile="Results/Test_ListFiles.TSTool.log")
+StartLog(LogFile="Results/Test_ListFiles.StateDMI.log")
 # Remove the output file before the test
 RemoveFile(InputFile="Results/Test_ListFiles_out.csv",IfNotFound=Ignore)
 ListFiles(Folder="Data",TableID="FileList")

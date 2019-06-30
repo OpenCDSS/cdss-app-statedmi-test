@@ -1,6 +1,6 @@
 # Test setting values in a table
 # * Simple table is read from a file.
-StartLog(LogFile="Results/Test_SetTableValues.TSTool.log")
+StartLog(LogFile="Results/Test_SetTableValues.StateDMI.log")
 RemoveFile(InputFile="Results/Test_SetTableValues_out.csv",IfNotFound=Ignore)
 ReadTableFromDelimitedFile(TableID="Table1",InputFile="Data\testtable.csv")
 # ---- Start tests matching 1 column in filter ----

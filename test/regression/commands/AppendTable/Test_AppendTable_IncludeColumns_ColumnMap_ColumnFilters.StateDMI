@@ -1,7 +1,7 @@
 # Test appending one table to another
 # * All default parameters
 # * Include one column, where name does not match so use the column map
-StartLog(LogFile="Results/Test_AppendTable_IncludeColumns_ColumnMap_ColumnFilters.TSTool.log")
+StartLog(LogFile="Results/Test_AppendTable_IncludeColumns_ColumnMap_ColumnFilters.StateDMI.log")
 RemoveFile(InputFile="Results/Test_AppendTable_IncludeColumns_ColumnMap_ColumnFilters_out.csv",IfNotFound=Ignore)
 ReadTableFromDelimitedFile(TableID="Table1",InputFile="Data\testtable.csv")
 ReadTableFromDelimitedFile(TableID="Table2",InputFile="Data\testtable2.csv")

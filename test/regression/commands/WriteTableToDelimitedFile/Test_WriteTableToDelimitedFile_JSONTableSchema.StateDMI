@@ -1,6 +1,6 @@
 # Test writing a delimited file
 # - output schema file to JSONTableSchema
-StartLog(LogFile="Results/Test_WriteTableToDelimitedFile_JSONTableSchema.TSTool.log")
+StartLog(LogFile="Results/Test_WriteTableToDelimitedFile_JSONTableSchema.StateDMI.log")
 RemoveFile(InputFile="Results/Test_WriteTableToDelimitedFile_JSONTableSchema_out.csv",IfNotFound=Ignore)
 ReadTableFromDelimitedFile(TableID="TestTable",InputFile="Data\testtable2.csv",DateTimeColumns="Date,DateTime")
 # Uncomment the following to regenerate expected results.

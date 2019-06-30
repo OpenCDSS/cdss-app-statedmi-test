@@ -1,6 +1,6 @@
 # Test sorting a table read from a file.
 # - Sort string column with default ascending
-StartLog(LogFile="Results/Test_SortTable.TSTool.log")
+StartLog(LogFile="Results/Test_SortTable.StateDMI.log")
 RemoveFile(InputFile="Results/Test_SortTable_out.csv",IfNotFound=Ignore)
 ReadTableFromDelimitedFile(TableID="Table1",InputFile="Data\testtable.csv")
 SortTable(TableID="Table1",SortColumns="String")

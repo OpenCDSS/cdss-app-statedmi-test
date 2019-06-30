@@ -1,6 +1,6 @@
 # Test setting a property from a table
 # - read the table from the file
-StartLog(LogFile="Results/Test_SetPropertyFromTable.TSTool.log")
+StartLog(LogFile="Results/Test_SetPropertyFromTable.StateDMI.log")
 RemoveFile(InputFile="Results/Test_SetPropertyFromTable_out.csv",IfNotFound=Ignore)
 ReadTableFromDelimitedFile(TableID="Table1",InputFile="Data\testtable.csv")
 SetPropertyFromTable(TableID="Table1",Column="String2",ColumnIncludeFilters="String:First*",PropertyName="StringProp1")

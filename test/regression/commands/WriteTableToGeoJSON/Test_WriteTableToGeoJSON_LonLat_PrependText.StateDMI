@@ -1,7 +1,7 @@
 # Test writing a table to a GeoJSON file
 # - point coordinates in lon and lat columns
 # - use PrependText and AppendText to insert custom JavaScript
-StartLog(LogFile="Results/Test_WriteTableToGeoJSON_LonLat_PrependText.TSTool.log")
+StartLog(LogFile="Results/Test_WriteTableToGeoJSON_LonLat_PrependText.StateDMI.log")
 RemoveFile(InputFile="Results/Test_WriteTableToGeoJSON_LonLat_PrependText_out.csv",IfNotFound=Ignore)
 ReadTableFromDelimitedFile(TableID="StationMeta",InputFile="Data\StationMeta.csv",TextColumns="ID_text")
 # Generate the results.

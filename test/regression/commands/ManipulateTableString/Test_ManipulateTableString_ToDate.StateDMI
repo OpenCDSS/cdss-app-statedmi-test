@@ -1,5 +1,5 @@
 # Test converting a string to a date (DateTime with day precision) column in a table
-StartLog(LogFile="Results/Test_ManipulateTableString_Columns_ToDate.TSTool.log")
+StartLog(LogFile="Results/Test_ManipulateTableString_Columns_ToDate.StateDMI.log")
 RemoveFile(InputFile="Results/Test_ManipulateTableString_Columns_ToDate_out.dv",IfNotFound=Ignore)
 # Generate some table data but converting time series to table
 ReadTableFromDelimitedFile(TableID="Table1",InputFile="Data\testdata2.csv")

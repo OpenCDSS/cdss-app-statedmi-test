@@ -1,10 +1,10 @@
 # Test setting a processor property to an integer using math parameters
-StartLog(LogFile="Results/Test_SetProperty_Integer_Math.TSTool.log")
+StartLog(LogFile="Results/Test_SetProperty_Integer_Math.StateDMI.log")
 RemoveFile(InputFile="Results/Test_SetProperty_Integer_Math_out.txt",IfNotFound=Ignore)
 SetProperty(PropertyName="IntegerProp1",PropertyType=Integer,PropertyValue="900913")
-SetProperty(PropertyName="IntegerProp1",PropertyType=Integer,PropertyValue="${IntegerProp1}",Add=10)
+SetProperty(PropertyName="IntegerProp1",PropertyType=Integer,PropertyValue="${IntegerProp1}",Add="10")
 SetProperty(PropertyName="IntegerProp2",PropertyType=Integer,PropertyValue="900913")
-SetProperty(PropertyName="IntegerProp2",PropertyType=Integer,PropertyValue="${IntegerProp2}",Subtract=10)
+SetProperty(PropertyName="IntegerProp2",PropertyType=Integer,PropertyValue="${IntegerProp2}",Subtract="10")
 SetProperty(PropertyName="IntegerProp3",PropertyType=Integer,PropertyValue="100")
 SetProperty(PropertyName="IntegerProp3",PropertyType=Integer,PropertyValue="${IntegerProp3}",Multiply=2)
 SetProperty(PropertyName="IntegerProp4",PropertyType=Integer,PropertyValue="100")

@@ -1,5 +1,5 @@
 # Test include and exclude filters
-StartLog(LogFile="Results/Test_ManipulateTableString_Columns_Prepend_Filters.TSTool.log")
+StartLog(LogFile="Results/Test_ManipulateTableString_Columns_Prepend_Filters.StateDMI.log")
 RemoveFile(InputFile="Results/Test_ManipulateTableString_Columns_Prepend_Filters_out.dv",IfNotFound=Ignore)
 # Generate some table data but converting time series to table
 ReadTableFromDelimitedFile(TableID="Table1",InputFile="Data\testdata3.csv")

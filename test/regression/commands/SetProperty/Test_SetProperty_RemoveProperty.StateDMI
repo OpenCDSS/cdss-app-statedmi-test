@@ -2,7 +2,7 @@
 # - after removing, the property should be null when requested for output
 # - actually, expect to fail because WritePropertiesToFile throws an exception where WriteProperty did not
 #@expectedStatus Failure
-StartLog(LogFile="Results/Test_SetProperty_RemoveProperty.TSTool.log")
+StartLog(LogFile="Results/Test_SetProperty_RemoveProperty.StateDMI.log")
 RemoveFile(InputFile="Results/Test_SetProperty_RemoveProperty_out.txt",IfNotFound=Ignore)
 SetProperty(PropertyName="DoubleProp_NaN",PropertyType=Double,SetNaN=True)
 SetProperty(PropertyName="StringProp_Empty",PropertyType=String,SetEmpty=True)

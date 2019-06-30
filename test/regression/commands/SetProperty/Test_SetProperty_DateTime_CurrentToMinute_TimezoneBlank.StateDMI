@@ -1,6 +1,6 @@
 # Test setting a processor property to a date/time for current time to the minute.
 # - also set the time zone to blank using .Timezone()
-StartLog(LogFile="Results/Test_SetProperty_DateTime_CurrentToMinute_TimezoneBlank.TSTool.log")
+StartLog(LogFile="Results/Test_SetProperty_DateTime_CurrentToMinute_TimezoneBlank.StateDMI.log")
 RemoveFile(InputFile="Results/Test_SetProperty_DateTime_CurrentToMinute_TimezoneBlank_out.txt",IfNotFound=Ignore)
 SetProperty(PropertyName="DateTimeProp",PropertyType=DateTime,PropertyValue="CurrentToMinute.Timezone()")
 # Uncomment the following two commands to regenerate the expected results file.

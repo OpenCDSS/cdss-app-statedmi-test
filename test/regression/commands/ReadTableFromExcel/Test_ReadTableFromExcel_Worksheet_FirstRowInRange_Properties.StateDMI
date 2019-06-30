@@ -5,7 +5,7 @@
 # - Specify the input file using ${Property}
 # - Specify the worksheet using ${Property}
 # - Specify the table ID using ${Property}
-StartLog(LogFile="Results/Test_ReadTableFromExcel_Worksheet_FirstRowInRange_Properties.TSTool.log")
+StartLog(LogFile="Results/Test_ReadTableFromExcel_Worksheet_FirstRowInRange_Properties.StateDMI.log")
 RemoveFile(InputFile="Results/Test_ReadTableFromExcel_Worksheet_FirstRowInRange_Properties_out.csv",IfNotFound=Ignore)
 SetProperty(PropertyName="TestTableID",PropertyType=String,PropertyValue="Table_NoFormulas")
 SetProperty(PropertyName="TestInputFile",PropertyType=String,PropertyValue="Data\TestWorkbook.xlsx")

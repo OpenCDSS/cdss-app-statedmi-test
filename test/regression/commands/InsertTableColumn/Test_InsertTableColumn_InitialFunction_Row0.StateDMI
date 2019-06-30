@@ -1,7 +1,7 @@
 # Test inserting a column into a table for each of the supported data types, headers only
 # - Initialize to function Row0
 # - Date and DateTime column types cannot be assigned to Row
-StartLog(LogFile="Results/Test_InsertTableColumn_InitialFunction_Row0.TSTool.log")
+StartLog(LogFile="Results/Test_InsertTableColumn_InitialFunction_Row0.StateDMI.log")
 RemoveFile(InputFile="Results/Test_InsertTableColumn_InitialFunction_Row0_out.csv",IfNotFound=Ignore)
 ReadTableFromDelimitedFile(TableID="Table1",InputFile="Data\testtable.csv")
 InsertTableColumn(TableID="Table1",InsertColumn="double2",ColumnType=Double,InitialFunction="Row0")

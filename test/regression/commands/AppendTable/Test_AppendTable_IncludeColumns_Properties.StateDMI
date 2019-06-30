@@ -2,7 +2,7 @@
 # - All default parameters
 # - Only include one column, where column name matches
 # - Specify the table ids with ${Property}
-StartLog(LogFile="Results/Test_AppendTable_IncludeColumns_Properties.TSTool.log")
+StartLog(LogFile="Results/Test_AppendTable_IncludeColumns_Properties.StateDMI.log")
 RemoveFile(InputFile="Results/Test_AppendTable_IncludeColumns_Properties_out.csv",IfNotFound=Ignore)
 SetProperty(PropertyName="TestTable1",PropertyType=String,PropertyValue="Table1")
 SetProperty(PropertyName="TestTable2",PropertyType=String,PropertyValue="Table2")

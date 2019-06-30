@@ -1,10 +1,10 @@
 # Test sorting a table read from a file.
 # - Sort integer column
 # - descending order
-StartLog(LogFile="Results/Test_SortTable_Integer_Descending.TSTool.log")
+StartLog(LogFile="Results/Test_SortTable_Integer_Descending.StateDMI.log")
 RemoveFile(InputFile="Results/Test_SortTable_Integer_Descending_out.csv",IfNotFound=Ignore)
 ReadTableFromDelimitedFile(TableID="Table1",InputFile="Data\testtable2.csv")
-SortTable(TableID="Table1",SortColumns="Integer",SortOrder=Descending)
+SortTable(TableID="Table1",SortColumns="Integer",SortOrder="Integer:Descending")
 # Uncomment the following to generate the expected results.
 # WriteTableToDelimitedFile(TableID="Table1",OutputFile="ExpectedResults\Test_SortTable_Integer_Descending_out.csv")
 WriteTableToDelimitedFile(TableID="Table1",OutputFile="Results\Test_SortTable_Integer_Descending_out.csv")

@@ -3,7 +3,7 @@
 #  - Data have no formulas
 #  - Name columns FirstRowInRange
 #  - Include multiple rows with different patterns
-StartLog(LogFile="Results/Test_ReadTableFromExcel_ExcelAddress_NoFormulas_FirstRowInRange_IncludeMultiple.TSTool.log")
+StartLog(LogFile="Results/Test_ReadTableFromExcel_ExcelAddress_NoFormulas_FirstRowInRange_IncludeMultiple.StateDMI.log")
 RemoveFile(InputFile="Results/Test_ReadTableFromExcel_ExcelAddress_NoFormulas_FirstRowInRange_IncludeMultiple_out.csv",IfNotFound=Ignore)
 # SetDebugLevel(LogFileLevel=1)
 ReadTableFromExcel(TableID="Table_NoFormulas",InputFile="Data\TestWorkbook.xlsx",Worksheet="ExcludeMultiple",ExcelAddress="A1:G11",ExcelColumnNames=FirstRowInRange,ColumnIncludeFilters="Column4_String:a*,Column4_String:b*,Column4_String:")

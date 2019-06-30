@@ -2,7 +2,7 @@
 # - use default values (null)
 # - indicate the row to insert before
 # - indicate the count to insert
-StartLog(LogFile="Results/Test_InsertTableRow_InsertCount.TSTool.log")
+StartLog(LogFile="Results/Test_InsertTableRow_InsertCount.StateDMI.log")
 RemoveFile(InputFile="Results/Test_InsertTableRow_InsertCount_out.csv",IfNotFound=Ignore)
 ReadTableFromDelimitedFile(TableID="Table1",InputFile="Data\testtable.csv")
 InsertTableRow(TableID="Table1",InsertRow=2,InsertCount=5)

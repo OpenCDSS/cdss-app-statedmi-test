@@ -1,5 +1,5 @@
 # Test creating a table for each of the supported data types, headers only
-StartLog(LogFile="Results/Test_NewTable_HeadersOnly.TSTool.log")
+StartLog(LogFile="Results/Test_NewTable_HeadersOnly.StateDMI.log")
 RemoveFile(InputFile="Results/Test_NewTable_HeadersOnly_out.csv",IfNotFound=Ignore)
 NewTable(TableID="Table1",Columns="datetime1,datetime;double1,double;float1,float;integer1,integer;short1,short;string 1,string")
 # Uncomment the following to generate the expected results.

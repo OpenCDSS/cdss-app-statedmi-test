@@ -3,7 +3,7 @@
 #  - Data have no formulas
 #  - Name columns FirstRowInRange
 #  - Numeric headings (should be handled as text when used as column names)
-StartLog(LogFile="Results/Test_ReadTableFromExcel_ExcelAddress_NoFormulas_FirstRowInRange_NumericHeadings.TSTool.log")
+StartLog(LogFile="Results/Test_ReadTableFromExcel_ExcelAddress_NoFormulas_FirstRowInRange_NumericHeadings.StateDMI.log")
 RemoveFile(InputFile="Results/Test_ReadTableFromExcel_ExcelAddress_NoFormulas_FirstRowInRange_NumericHeadings_out.csv",IfNotFound=Ignore)
 ReadTableFromExcel(TableID="Table_NoFormulas",InputFile="Data\TestWorkbook.xlsx",Worksheet="NumericHeadings",ExcelAddress="A1:G11",ExcelColumnNames=FirstRowInRange)
 # Uncomment the following command to regenerate expected results

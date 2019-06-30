@@ -2,7 +2,7 @@
 # - include test of ^ for start of line
 # - include test of $ for end of line
 # - include test of blanks
-StartLog(LogFile="Results/Test_ManipulateTableString_Columns_Replace_Special.TSTool.log")
+StartLog(LogFile="Results/Test_ManipulateTableString_Columns_Replace_Special.StateDMI.log")
 RemoveFile(InputFile="Results/Test_ManipulateTableString_Columns_Replace_Special_out.dv",IfNotFound=Ignore)
 # Generate some table data but converting time series to table
 ReadTableFromDelimitedFile(TableID="Table1",InputFile="Data\testdata5.csv")

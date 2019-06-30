@@ -1,7 +1,7 @@
 # Test sorting a table read from a file.
 # - Sort string column with default ascending
 # - specify the table ID using ${Property}
-StartLog(LogFile="Results/Test_SortTable_Properties.TSTool.log")
+StartLog(LogFile="Results/Test_SortTable_Properties.StateDMI.log")
 RemoveFile(InputFile="Results/Test_SortTable_Properties_out.csv",IfNotFound=Ignore)
 SetProperty(PropertyName="TestTableID",PropertyType=String,PropertyValue="Table1")
 ReadTableFromDelimitedFile(TableID="${TestTableID}",InputFile="Data\testtable.csv")

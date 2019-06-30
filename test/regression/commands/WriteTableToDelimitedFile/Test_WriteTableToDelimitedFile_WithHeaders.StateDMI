@@ -1,5 +1,5 @@
 # Test writing a delimited file using default parameters and with column headers
-StartLog(LogFile="Results/Test_WriteTableToDelimitedFile_WithHeaders.TSTool.log")
+StartLog(LogFile="Results/Test_WriteTableToDelimitedFile_WithHeaders.StateDMI.log")
 RemoveFile(InputFile="Results/Test_WriteTableToDelimitedFile_WithHeaders_out.csv",IfNotFound=Ignore)
 ReadTableFromDelimitedFile(TableID="KNN_Aspinall",InputFile="Data\flow_sequence_dataset_WithHeaders.csv")
 # Generate the results.

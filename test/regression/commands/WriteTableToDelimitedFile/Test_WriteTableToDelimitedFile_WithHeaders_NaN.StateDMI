@@ -1,7 +1,7 @@
 # Test writing a delimited file
 # - with column headers
 # - with NaN values
-StartLog(LogFile="Results/Test_WriteTableToDelimitedFile_WithHeaders_NaN.TSTool.log")
+StartLog(LogFile="Results/Test_WriteTableToDelimitedFile_WithHeaders_NaN.StateDMI.log")
 RemoveFile(InputFile="Results/Test_WriteTableToDelimitedFile_WithHeaders_NaN_out.csv",IfNotFound=Ignore)
 ReadTableFromDelimitedFile(TableID="TestTable",InputFile="Data\testtable.csv")
 # Do some table math to generate NaN by dividing by zero

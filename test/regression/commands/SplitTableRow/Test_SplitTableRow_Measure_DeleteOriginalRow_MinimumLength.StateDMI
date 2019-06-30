@@ -1,5 +1,5 @@
 # Test splitting a table row into a sequence of rows using a measure
-StartLog(LogFile="Results/Test_SplitTableRow_Measure_DeleteOriginalRow_MinimumLength.TSTool.log")
+StartLog(LogFile="Results/Test_SplitTableRow_Measure_DeleteOriginalRow_MinimumLength.StateDMI.log")
 RemoveFile(InputFile="Results/Test_SplitTableRow_Measure_DeleteOriginalRow_MinimumLength_out.csv",IfNotFound=Ignore)
 ReadTableFromDelimitedFile(TableID="Table1",InputFile="Data\testtable-measure.csv")
 SplitTableRow(TableID="Table1",MeasureStartColumn="Start",MeasureEndColumn="End",MeasureIncrement=.1,MinimumStartSegmentLength=".049",MinimumEndSegmentLength=".049",DeleteOriginalRow="True")

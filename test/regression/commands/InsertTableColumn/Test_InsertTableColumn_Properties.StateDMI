@@ -3,7 +3,7 @@
 # -table insert column specified with ${Property}
 # -table insert column before specified with ${Property}
 # -table initial value specified with ${Property}
-StartLog(LogFile="Results/Test_InsertTableColumn_Properties.TSTool.log")
+StartLog(LogFile="Results/Test_InsertTableColumn_Properties.StateDMI.log")
 RemoveFile(InputFile="Results/Test_InsertTableColumn_Properties_out.csv",IfNotFound=Ignore)
 SetProperty(PropertyName="TestTableID",PropertyType=String,PropertyValue="Table1")
 SetProperty(PropertyName="TestTableFile",PropertyType=String,PropertyValue="Data\testtable2.csv")

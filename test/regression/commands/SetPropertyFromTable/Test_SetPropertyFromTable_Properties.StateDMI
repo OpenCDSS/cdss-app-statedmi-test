@@ -1,6 +1,6 @@
 # Test setting a property from a table
 # - Use ${Property} to set parameters
-StartLog(LogFile="Results/Test_SetPropertyFromTable_Properties.TSTool.log")
+StartLog(LogFile="Results/Test_SetPropertyFromTable_Properties.StateDMI.log")
 RemoveFile(InputFile="Results/Test_SetPropertyFromTable_Properties_out.csv",IfNotFound=Ignore)
 SetProperty(PropertyName="Test_TableID",PropertyType=String,PropertyValue="Table1")
 SetProperty(PropertyName="Test_Column",PropertyType=String,PropertyValue="String2")

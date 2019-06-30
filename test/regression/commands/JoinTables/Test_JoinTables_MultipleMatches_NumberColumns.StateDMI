@@ -4,7 +4,7 @@
 # * Rename output columns
 # * Match a few of the rows
 # * Multiple matches uses HandleMultipleJoinMatchesHow=NumberColumns
-StartLog(LogFile="Results/Test_JoinTable_MultipleMatches_NumberColumns.TSTool.log")
+StartLog(LogFile="Results/Test_JoinTable_MultipleMatches_NumberColumns.StateDMI.log")
 RemoveFile(InputFile="Results/Test_JoinTable_MultipleMatches_NumberColumns_out.csv",IfNotFound=Ignore)
 ReadTableFromDelimitedFile(TableID="Table1",InputFile="Data\testtable1.csv")
 ReadTableFromDelimitedFile(TableID="Table2",InputFile="Data\testtable4-MultipleMatch.csv")

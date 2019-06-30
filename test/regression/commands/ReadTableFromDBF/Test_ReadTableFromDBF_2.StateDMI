@@ -2,7 +2,7 @@
 # attribute file that goes with an ESRI shapefile.
 # Note that this file has latitude, longitude as character strings so they will
 # display left justified.
-StartLog(LogFile="Results/Test_ReadTableFromDBF_2.TSTool.log")
+StartLog(LogFile="Results/Test_ReadTableFromDBF_2.StateDMI.log")
 RemoveFile(InputFile="Results/Test_ReadTableFromDBF_2_out.csv",IfNotFound=Ignore)
 ReadTableFromDBF(TableID="ClimateStations",InputFile="Data\Sumflowdecree_by_district.dbf")
 # Uncomment the following to regenerate the expected results.

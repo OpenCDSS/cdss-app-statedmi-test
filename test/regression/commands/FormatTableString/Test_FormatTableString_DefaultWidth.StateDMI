@@ -1,6 +1,6 @@
 #@enabled False  (TODO sam 2013-05-14 Need to figure out why double is not showing decimals)
 # Test formatting a string to a column in a table, using default widths
-StartLog(LogFile="Results/Test_ManipulateTableString_Columns_DefaultWidth.TSTool.log")
+StartLog(LogFile="Results/Test_ManipulateTableString_Columns_DefaultWidth.StateDMI.log")
 RemoveFile(InputFile="Results/Test_ManipulateTableString_Columns_DefaultWidth_out.dv",IfNotFound=Ignore)
 # Generate some table data but converting time series to table
 ReadTableFromDelimitedFile(TableID="Table1",InputFile="Data\testdata2.csv")

@@ -2,7 +2,7 @@
 # * Specify the distinct columns
 # * Output all columns
 # * Distinct column is of type String
-StartLog(LogFile="Results/Test_CopyTable_DistinctColumns_String_AllOutput.TSTool.log")
+StartLog(LogFile="Results/Test_CopyTable_DistinctColumns_String_AllOutput.StateDMI.log")
 RemoveFile(InputFile="Results/Test_CopyTable_DistinctColumns_String_AllOutput_out.csv",IfNotFound=Ignore)
 ReadTableFromDelimitedFile(TableID="Table1",InputFile="Data\testtable2.csv")
 CopyTable(TableID="Table1",NewTableID="Table1Copy",DistinctColumns="String")

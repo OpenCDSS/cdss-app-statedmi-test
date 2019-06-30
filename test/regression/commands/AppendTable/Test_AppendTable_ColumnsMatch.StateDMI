@@ -1,7 +1,7 @@
 # Test appending one table to another
 # * All default parameters
 # * All columns match
-StartLog(LogFile="Results/Test_AppendTable_ColumnsMatch.TSTool.log")
+StartLog(LogFile="Results/Test_AppendTable_ColumnsMatch.StateDMI.log")
 RemoveFile(InputFile="Results/Test_AppendTable_ColumnsMatch_out.csv",IfNotFound=Ignore)
 ReadTableFromDelimitedFile(TableID="Table1",InputFile="Data\testtable.csv")
 ReadTableFromDelimitedFile(TableID="Table2",InputFile="Data\testtable.csv")

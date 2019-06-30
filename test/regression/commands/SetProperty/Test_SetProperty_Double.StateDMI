@@ -1,5 +1,5 @@
 # Test setting a processor property to a double
-StartLog(LogFile="Results/Test_SetProperty_Double.TSTool.log")
+StartLog(LogFile="Results/Test_SetProperty_Double.StateDMI.log")
 RemoveFile(InputFile="Results/Test_SetProperty_Double_out.txt",IfNotFound=Ignore)
 SetProperty(PropertyName="DoubleProp",PropertyType=Double,PropertyValue="900913.0")
 # Uncomment the following two commands to regenerate the expected results file.

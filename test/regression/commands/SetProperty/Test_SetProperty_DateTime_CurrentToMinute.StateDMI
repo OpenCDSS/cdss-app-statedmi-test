@@ -1,5 +1,5 @@
 # Test setting a processor property to a date/time for current time to the minute.
-StartLog(LogFile="Results/Test_SetProperty_DateTime_CurrentToMinute.TSTool.log")
+StartLog(LogFile="Results/Test_SetProperty_DateTime_CurrentToMinute.StateDMI.log")
 RemoveFile(InputFile="Results/Test_SetProperty_DateTime_CurrentToMinute_out.txt",IfNotFound=Ignore)
 SetProperty(PropertyName="DateTimeProp",PropertyType=DateTime,PropertyValue="CurrentToMinute")
 # Uncomment the following two commands to regenerate the expected results file.
