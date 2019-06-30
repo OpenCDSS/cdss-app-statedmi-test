@@ -4,7 +4,7 @@
 # * Rename output columns
 # * Match a few of the rows in first join, and more in a second join
 # * Only join if in both tables
-StartLog(LogFile="Results/Test_JoinTable_PartialMatch2_JoinIfInBoth.TSTool.log")
+StartLog(LogFile="Results/Test_JoinTable_PartialMatch2_JoinIfInBoth.StateDMI.log")
 RemoveFile(InputFile="Results/Test_JoinTable_PartialMatch2_JoinIfInBoth_out.csv",IfNotFound=Ignore)
 ReadTableFromDelimitedFile(TableID="Table1",InputFile="Data\testtable1.csv")
 ReadTableFromDelimitedFile(TableID="Table3",InputFile="Data\testtable3.csv")

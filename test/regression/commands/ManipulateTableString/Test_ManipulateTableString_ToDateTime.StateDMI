@@ -1,6 +1,6 @@
 # Test converting a string to a datetime (DateTime with day minute precision) column in a table
 # Precision is determined by parsing
-StartLog(LogFile="Results/Test_ManipulateTableString_Columns_ToDateTime.TSTool.log")
+StartLog(LogFile="Results/Test_ManipulateTableString_Columns_ToDateTime.StateDMI.log")
 RemoveFile(InputFile="Results/Test_ManipulateTableString_Columns_ToDateTime_out.dv",IfNotFound=Ignore)
 # Generate some table data but converting time series to table
 ReadTableFromDelimitedFile(TableID="Table1",InputFile="Data\testdata2.csv")

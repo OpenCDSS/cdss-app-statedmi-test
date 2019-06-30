@@ -1,5 +1,5 @@
 # This command file can be used to confirm that views in HydroBase are visible to the
-# user running the commands.  If no errors result, then TSTool should be able
+# user running the commands.  If no errors result, then StateDMI should be able
 # to query the views using the sp_Flex stores procedure, which handles
 # many of he ad hoc queries.
 ReadTableFromDataStore(DataStore="HydroBase",Sql="Select top 100 * from vw_CDSS_AgriculturalCASSCropStats",TableID="vw_CDSS_AgriculturalCASSCropStats")

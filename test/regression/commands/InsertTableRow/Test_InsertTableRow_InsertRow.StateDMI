@@ -1,7 +1,7 @@
 # Test inserting a row into a table for each of the supported data types
 # - use default values (null)
 # - indicate the row to insert before
-StartLog(LogFile="Results/Test_InsertTableRow_InsertRow.TSTool.log")
+StartLog(LogFile="Results/Test_InsertTableRow_InsertRow.StateDMI.log")
 RemoveFile(InputFile="Results/Test_InsertTableRow_InsertRow_out.csv",IfNotFound=Ignore)
 ReadTableFromDelimitedFile(TableID="Table1",InputFile="Data\testtable.csv")
 InsertTableRow(TableID="Table1",InsertRow=2)

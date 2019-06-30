@@ -1,7 +1,7 @@
 # Test writing a table to HTML using default parameters
 # - Specify table ID using ${Property}
 # - Specify output file using ${Property}
-StartLog(LogFile="Results/Test_WriteTableToHTML_Properties.TSTool.log")
+StartLog(LogFile="Results/Test_WriteTableToHTML_Properties.StateDMI.log")
 RemoveFile(InputFile="Results/Test_WriteTableToHTML_Properties_out.html",IfNotFound=Ignore)
 SetProperty(PropertyName="TestTSID",PropertyType=String,PropertyValue="KNN_Aspinall")
 SetProperty(PropertyName="TestOutputFile0",PropertyType=String,PropertyValue="ExpectedResults\Test_WriteTableToHTML_Properties_out.html")

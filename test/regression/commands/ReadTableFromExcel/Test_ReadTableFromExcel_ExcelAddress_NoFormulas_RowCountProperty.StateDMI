@@ -3,7 +3,7 @@
 #  - Data have no formulas
 #  - Name columns FirstRowInRange
 #  - Set the row count property
-StartLog(LogFile="Results/Test_ReadTableFromExcel_ExcelAddress_NoFormulas_FirstRowInRange_RowCountProperty.TSTool.log")
+StartLog(LogFile="Results/Test_ReadTableFromExcel_ExcelAddress_NoFormulas_FirstRowInRange_RowCountProperty.StateDMI.log")
 RemoveFile(InputFile="Results/Test_ReadTableFromExcel_ExcelAddress_NoFormulas_FirstRowInRange_RowCountProperty_out.csv",IfNotFound=Ignore)
 ReadTableFromExcel(TableID="Table_NoFormulas",InputFile="Data\TestWorkbook.xlsx",Worksheet="Address_NoFormulas",ExcelAddress="A1:G11",ExcelColumnNames=FirstRowInRange,RowCountProperty="Test_TableRowCount")
 # Uncomment the following two commands to regenerate expected results

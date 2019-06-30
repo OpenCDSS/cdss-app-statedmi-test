@@ -2,7 +2,7 @@
 # * All default parameters
 # * All columns match
 # * Use column filters
-StartLog(LogFile="Results/Test_AppendTable_ColumnsMatch_ColumnFilters.TSTool.log")
+StartLog(LogFile="Results/Test_AppendTable_ColumnsMatch_ColumnFilters.StateDMI.log")
 RemoveFile(InputFile="Results/Test_AppendTable_ColumnsMatch_ColumnFilters_out.csv",IfNotFound=Ignore)
 ReadTableFromDelimitedFile(TableID="Table1",InputFile="Data\testtable.csv")
 ReadTableFromDelimitedFile(TableID="Table2",InputFile="Data\testtable.csv")

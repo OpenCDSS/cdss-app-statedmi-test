@@ -2,7 +2,7 @@
 # attribute file that goes with an ESRI shapefile.
 # Note that this file has latitude, longitude as character strings so they will display left justified.
 # - Top is used to limit the read
-StartLog(LogFile="Results/Test_ReadTableFromDBF_Top.TSTool.log")
+StartLog(LogFile="Results/Test_ReadTableFromDBF_Top.StateDMI.log")
 RemoveFile(InputFile="Results/Test_ReadTableFromDBF_Top_out.csv",IfNotFound=Ignore)
 ReadTableFromDBF(TableID="ClimateStations",InputFile="Data\div1_climatestations.dbf",Top=10)
 # Uncomment the following to regenerate the expected results.

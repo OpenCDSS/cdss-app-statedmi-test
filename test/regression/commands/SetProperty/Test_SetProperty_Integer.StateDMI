@@ -1,5 +1,5 @@
 # Test setting a processor property to an integer
-StartLog(LogFile="Results/Test_SetProperty_Integer.TSTool.log")
+StartLog(LogFile="Results/Test_SetProperty_Integer.StateDMI.log")
 RemoveFile(InputFile="Results/Test_SetProperty_Integer_out.txt",IfNotFound=Ignore)
 SetProperty(PropertyName="IntegerProp",PropertyType=Integer,PropertyValue="900913")
 # Uncomment the following two commands to regenerate the expected results file.

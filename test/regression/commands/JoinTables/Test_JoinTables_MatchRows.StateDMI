@@ -2,7 +2,7 @@
 # * All default parameters
 # * Specify one join column
 # * Rename output columns
-StartLog(LogFile="Results/Test_JoinTable_MatchRows.TSTool.log")
+StartLog(LogFile="Results/Test_JoinTable_MatchRows.StateDMI.log")
 RemoveFile(InputFile="Results/Test_JoinTable_MatchRows_out.csv",IfNotFound=Ignore)
 ReadTableFromDelimitedFile(TableID="Table1",InputFile="Data\testtable1.csv")
 ReadTableFromDelimitedFile(TableID="Table2",InputFile="Data\testtable2.csv")

@@ -1,6 +1,6 @@
 # Test replacing a substring in a string column
 # - Replace < with nothing (allow expression to convert to number)
-StartLog(LogFile="Results/Test_ManipulateTableString_Columns_Replace2.TSTool.log")
+StartLog(LogFile="Results/Test_ManipulateTableString_Columns_Replace2.StateDMI.log")
 RemoveFile(InputFile="Results/Test_ManipulateTableString_Columns_Replace2_out.dv",IfNotFound=Ignore)
 # Generate some table data but converting time series to table
 ReadTableFromDelimitedFile(TableID="Table1",InputFile="Data\testdata4.csv")

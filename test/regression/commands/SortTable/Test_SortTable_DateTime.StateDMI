@@ -1,6 +1,6 @@
 # Test sorting a table read from a file.
 # - Sort DateTime column with default ascending
-StartLog(LogFile="Results/Test_SortTable_DateTime.TSTool.log")
+StartLog(LogFile="Results/Test_SortTable_DateTime.StateDMI.log")
 RemoveFile(InputFile="Results/Test_SortTable_DateTime_out.csv",IfNotFound=Ignore)
 ReadTableFromDelimitedFile(TableID="Table1",InputFile="Data\testtable2.csv")
 SortTable(TableID="Table1",SortColumns="DateTime")

@@ -1,6 +1,6 @@
 # Test setting a freeze pane in an Excel worksheet
 # - specify by name the Worksheet to process
-StartLog(LogFile="Results/Test_SetExcelWorksheetViewProperties_Worksheet.TSTool.log")
+StartLog(LogFile="Results/Test_SetExcelWorksheetViewProperties_Worksheet.StateDMI.log")
 RemoveFile(InputFile="Results/Test_SetExcelWorksheetViewProperties_Worksheet_out.xlsx",IfNotFound=Ignore)
 # Read the table from the Excel data file
 ReadTableFromExcel(TableID="Table1",InputFile="Data\Definitions.xlsx",Worksheet="Basins",ExcelAddress="A5:D14",ExcelColumnNames=FirstRowInRange)

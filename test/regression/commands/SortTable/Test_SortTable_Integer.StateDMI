@@ -1,6 +1,6 @@
 # Test sorting a table read from a file.
 # - Sort integer column with default ascending
-StartLog(LogFile="Results/Test_SortTable_Integer.TSTool.log")
+StartLog(LogFile="Results/Test_SortTable_Integer.StateDMI.log")
 RemoveFile(InputFile="Results/Test_SortTable_Integer_out.csv",IfNotFound=Ignore)
 ReadTableFromDelimitedFile(TableID="Table1",InputFile="Data\testtable2.csv")
 SortTable(TableID="Table1",SortColumns="Integer")

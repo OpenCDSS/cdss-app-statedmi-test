@@ -1,6 +1,6 @@
 # Test reading an Excel workbook:
 # - Read an Excel workbook and keep open
 # - Close the workbook and save to different filename
-StartLog(LogFile="Results/Test_ReadExcelWorkbook.TSTool.log")
+StartLog(LogFile="Results/Test_ReadExcelWorkbook.StateDMI.log")
 ReadExcelWorkbook(InputFile="Data\TestWorkbook.xlsx")
 CloseExcelWorkbook(OutputFile="Data\Testworkbook.xlsx",NewOutputFile="Results\Test_ReadExcelWorkbook_out.xlsx",WriteFile=True)

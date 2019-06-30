@@ -1,6 +1,6 @@
 # Test writing a delimited file using default parameters but no header comments
 # For example, Esri's ArcGIS does not handle the comment lines
-StartLog(LogFile="Results/Test_WriteTableToDelimitedFile_NoHeaderComments.TSTool.log")
+StartLog(LogFile="Results/Test_WriteTableToDelimitedFile_NoHeaderComments.StateDMI.log")
 RemoveFile(InputFile="Results/Test_WriteTableToDelimitedFile_NoHeaderComments_out.csv",IfNotFound=Ignore)
 ReadTableFromDelimitedFile(TableID="KNN_Aspinall",InputFile="Data\flow_sequence_dataset_WithHeaders.csv")
 # Uncomment to regenerate the expected results.

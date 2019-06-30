@@ -1,6 +1,6 @@
 # Test formatting a processor date/time property using strftime formatter
 # -test outputting to different property types
-StartLog(LogFile="Results/Test_FormatDateTimeProperty_PropertyType.TSTool.log")
+StartLog(LogFile="Results/Test_FormatDateTimeProperty_PropertyType.StateDMI.log")
 RemoveFile(InputFile="Results/Test_FormatDateTimeProperty_PropertyType_out.txt",IfNotFound=Ignore)
 SetProperty(PropertyName="DateProp",PropertyType=DateTime,PropertyValue="2011-01-23")
 SetProperty(PropertyName="DateTimeProp",PropertyType=DateTime,PropertyValue="2011-01-23T01:23:45 MST")

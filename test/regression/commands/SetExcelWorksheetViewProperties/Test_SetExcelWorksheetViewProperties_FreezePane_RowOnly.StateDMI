@@ -1,6 +1,6 @@
 # Test setting a freeze pane in an Excel worksheet
 # - only specify the row for the freeze pane
-StartLog(LogFile="Results/Test_SetExcelWorksheetViewProperties_RowOnly.TSTool.log")
+StartLog(LogFile="Results/Test_SetExcelWorksheetViewProperties_RowOnly.StateDMI.log")
 RemoveFile(InputFile="Results/Test_SetExcelWorksheetViewProperties_RowOnly_out.xlsx",IfNotFound=Ignore)
 # Read the table from the Excel data file
 ReadTableFromExcel(TableID="Table1",InputFile="Data\Definitions.xlsx",ExcelAddress="A5:D14",ExcelColumnNames=FirstRowInRange)

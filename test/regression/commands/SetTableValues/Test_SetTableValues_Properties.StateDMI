@@ -1,7 +1,7 @@
 # Test setting values in a table
 # - Simple table is read from a file.
 # - Use ${Property} in all parameters
-StartLog(LogFile="Results/Test_SetTableValues_Properties.TSTool.log")
+StartLog(LogFile="Results/Test_SetTableValues_Properties.StateDMI.log")
 RemoveFile(InputFile="Results/Test_SetTableValues_Properties_out.csv",IfNotFound=Ignore)
 SetProperty(PropertyName="TestTableID",PropertyType=String,PropertyValue="Table1")
 SetProperty(PropertyName="TestColumnFilter1",PropertyType=String,PropertyValue="First day")

@@ -1,6 +1,6 @@
 # Test writing a table to a Shapefile file
 # - point coordinates in lon and lat columns
-StartLog(LogFile="Results/Test_WriteTableToShapefile_LonLat.TSTool.log")
+StartLog(LogFile="Results/Test_WriteTableToShapefile_LonLat.StateDMI.log")
 RemoveFile(InputFile="Results/Test_WriteTableToShapefile_LonLat_out.csv",IfNotFound=Ignore)
 ReadTableFromDelimitedFile(TableID="StationMeta",InputFile="Data\StationMeta.csv",TextColumns="ID_text")
 # Generate the results.

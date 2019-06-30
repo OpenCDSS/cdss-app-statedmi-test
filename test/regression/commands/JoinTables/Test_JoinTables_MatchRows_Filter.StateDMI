@@ -3,7 +3,7 @@
 # * Specify one join column
 # * Rename output columns
 # * Filter the rows being joined
-StartLog(LogFile="Results/Test_JoinTable_MatchRows_Filter.TSTool.log")
+StartLog(LogFile="Results/Test_JoinTable_MatchRows_Filter.StateDMI.log")
 RemoveFile(InputFile="Results/Test_JoinTable_MatchRows_Filter_out.csv",IfNotFound=Ignore)
 ReadTableFromDelimitedFile(TableID="Table1",InputFile="Data\testtable1.csv")
 ReadTableFromDelimitedFile(TableID="Table2",InputFile="Data\testtable2.csv")

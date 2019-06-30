@@ -1,5 +1,5 @@
 # Test inserting a column into a table for each of the supported data types, headers only
-StartLog(LogFile="Results/Test_InsertTableColumn_InitialValue.TSTool.log")
+StartLog(LogFile="Results/Test_InsertTableColumn_InitialValue.StateDMI.log")
 RemoveFile(InputFile="Results/Test_InsertTableColumn_InitialValue_out.csv",IfNotFound=Ignore)
 ReadTableFromDelimitedFile(TableID="Table1",InputFile="Data\testtable.csv")
 InsertTableColumn(TableID="Table1",InsertColumn="datetime2",InsertBeforeColumn="double1",ColumnType=DateTime,InitialValue="2011-01-01 12")

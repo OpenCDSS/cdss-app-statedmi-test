@@ -2,7 +2,7 @@
 #  1) Copy the Excel file to results
 #  2) Read the Excel file and keep open
 #  3) Close the open Excel file
-StartLog(LogFile="Results/Test_CloseExcelWorkbook.TSTool.log")
+StartLog(LogFile="Results/Test_CloseExcelWorkbook.StateDMI.log")
 RemoveFile(InputFile="Results/Test_CloseExcelWorkbook_out.xlsx",IfNotFound=Ignore)
 CopyFile(InputFile="Data\TestWorkbook.xlsx",OutputFile="Results/Test_CloseExcelWorkbook_out.xlsx",IfInputNotFound=Fail)
 ReadTableFromExcel(TableID="Table",InputFile="Results/Test_CloseExcelWorkbook_out.xlsx",Worksheet="Worksheet_Headers",ExcelColumnNames=FirstRowInRange,KeepOpen=True)

@@ -1,7 +1,7 @@
 # Test writing a table to a GeoJSON file
 # - point coordinates in lon and lat columns
 # - provide CRSText to insert the CRS data
-StartLog(LogFile="Results/Test_WriteTableToGeoJSON_LonLat_CRSText.TSTool.log")
+StartLog(LogFile="Results/Test_WriteTableToGeoJSON_LonLat_CRSText.StateDMI.log")
 RemoveFile(InputFile="Results/Test_WriteTableToGeoJSON_LonLat_CRSText_out.csv",IfNotFound=Ignore)
 ReadTableFromDelimitedFile(TableID="StationMeta",InputFile="Data\StationMeta.csv",TextColumns="ID_text")
 # Generate the results.

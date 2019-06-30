@@ -1,7 +1,7 @@
 # Test copying an entire table using a table read from a file
 # * Specify columns to copy
 # * Specify a column name map
-StartLog(LogFile="Results/Test_CopyTable_IncludeColumns_ColumnMap.TSTool.log")
+StartLog(LogFile="Results/Test_CopyTable_IncludeColumns_ColumnMap.StateDMI.log")
 RemoveFile(InputFile="Results/Test_CopyTable_IncludeColumns_ColumnMap_out.csv",IfNotFound=Ignore)
 ReadTableFromDelimitedFile(TableID="Table1",InputFile="Data\testtable.csv")
 CopyTable(TableID="Table1",NewTableID="Table1Copy",IncludeColumns="DateTime,String",ColumnMap="DateTime:DateTimeOut,String:StringOut")

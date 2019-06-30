@@ -1,5 +1,5 @@
 # Test converting a string to an integer column in a table
-StartLog(LogFile="Results/Test_ManipulateTableString_Columns_ToInteger.TSTool.log")
+StartLog(LogFile="Results/Test_ManipulateTableString_Columns_ToInteger.StateDMI.log")
 RemoveFile(InputFile="Results/Test_ManipulateTableString_Columns_ToInteger_out.dv",IfNotFound=Ignore)
 # Generate some table data but converting time series to table
 ReadTableFromDelimitedFile(TableID="Table1",InputFile="Data\testdata2.csv")

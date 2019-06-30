@@ -1,5 +1,5 @@
 # Test formatting a string using zero-padded integers
-StartLog(LogFile="Results/Test_ManipulateTableString_Columns_ZeroPad.TSTool.log")
+StartLog(LogFile="Results/Test_ManipulateTableString_Columns_ZeroPad.StateDMI.log")
 RemoveFile(InputFile="Results/Test_ManipulateTableString_Columns_ZeroPad_out.dv",IfNotFound=Ignore)
 # Generate some table data but converting time series to table
 ReadTableFromDelimitedFile(TableID="Table1",InputFile="Data\testdata3.csv")

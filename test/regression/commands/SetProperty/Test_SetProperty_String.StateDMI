@@ -1,5 +1,5 @@
 # Test setting a processor property to a string
-StartLog(LogFile="Results/Test_SetProperty_String.TSTool.log")
+StartLog(LogFile="Results/Test_SetProperty_String.StateDMI.log")
 RemoveFile(InputFile="Results/Test_SetProperty_String_out.txt",IfNotFound=Ignore)
 SetProperty(PropertyName="StringProp",PropertyType=String,PropertyValue="string with spaces")
 # Uncomment the following two commands to regenerate the expected results file.

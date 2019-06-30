@@ -1,6 +1,6 @@
 # Test writing a table to a GeoJSON file
 # - polygon coordinates in WKT column
-StartLog(LogFile="Results/Test_WriteTableToGeoJSON_WKTPolygon.TSTool.log")
+StartLog(LogFile="Results/Test_WriteTableToGeoJSON_WKTPolygon.StateDMI.log")
 RemoveFile(InputFile="Results/Test_WriteTableToGeoJSON_WKTPolygon_out.csv",IfNotFound=Ignore)
 ReadTableFromDelimitedFile(TableID="StationMeta",InputFile="Data\StationMeta-Polygon.csv",TextColumns="ID_text")
 # Generate the results.

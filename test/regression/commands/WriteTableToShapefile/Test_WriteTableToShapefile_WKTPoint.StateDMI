@@ -1,6 +1,6 @@
 # Test writing a table to a Shapefile file
 # - point coordinates in WKT column
-StartLog(LogFile="Results/Test_WriteTableToShapefile_WKTPoint.TSTool.log")
+StartLog(LogFile="Results/Test_WriteTableToShapefile_WKTPoint.StateDMI.log")
 RemoveFile(InputFile="Results/Test_WriteTableToShapefile_WKTPoint_out.csv",IfNotFound=Ignore)
 ReadTableFromDelimitedFile(TableID="StationMeta",InputFile="Data\StationMeta.csv",TextColumns="ID_text")
 # Generate the results.

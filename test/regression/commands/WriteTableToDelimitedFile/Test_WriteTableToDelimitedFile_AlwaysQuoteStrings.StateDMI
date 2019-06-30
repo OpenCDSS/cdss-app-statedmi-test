@@ -1,5 +1,5 @@
 # Test writing a delimited file using default parameters and always quote strings
-StartLog(LogFile="Results/Test_WriteTableToDelimitedFile_AlwaysQuoteStrings.TSTool.log")
+StartLog(LogFile="Results/Test_WriteTableToDelimitedFile_AlwaysQuoteStrings.StateDMI.log")
 RemoveFile(InputFile="Results/Test_WriteTableToDelimitedFile_AlwaysQuoteStrings_out.csv",IfNotFound=Ignore)
 ReadTableFromDelimitedFile(TableID="table1",InputFile="Data\table_quoted_strings.csv")
 # Generate the results.

@@ -1,6 +1,6 @@
 # Test writing a table to a GeoJSON file
 # - point coordinates in WKT column
-StartLog(LogFile="Results/Test_WriteTableToGeoJSON_WKTPoint.TSTool.log")
+StartLog(LogFile="Results/Test_WriteTableToGeoJSON_WKTPoint.StateDMI.log")
 RemoveFile(InputFile="Results/Test_WriteTableToGeoJSON_WKTPoint_out.csv",IfNotFound=Ignore)
 ReadTableFromDelimitedFile(TableID="StationMeta",InputFile="Data\StationMeta.csv",TextColumns="ID_text")
 # Generate the results.

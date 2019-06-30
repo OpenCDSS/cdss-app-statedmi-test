@@ -1,5 +1,5 @@
 # Test freeing a table
-StartLog(LogFile="Results/Test_FreeTable.TSTool.log")
+StartLog(LogFile="Results/Test_FreeTable.StateDMI.log")
 RemoveFile(InputFile="Results/Test_FreeTable_out.csv",IfNotFound=Ignore)
 NewTable(TableID="Table1",Columns="datetime1,datetime;double1,double;float1,float;integer1,integer;short1,short;string 1,string")
 NewTable(TableID="Table2",Columns="datetime1,datetime;double1,double;float1,float;integer1,integer;short1,short;string 1,string")

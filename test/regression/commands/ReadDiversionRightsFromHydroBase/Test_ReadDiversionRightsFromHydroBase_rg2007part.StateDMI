@@ -1,6 +1,6 @@
 # Test reading diversion rights data from HydroBase for a subset of structures
 StartLog(LogFile="Results/Test_ReadDiversionRightsFromHydroBase.StateDMI.log")
-RemoveFile(InputFile="Results\Test_ReadDiversionRightsFromHydroBase_rg2007part_out.csv")
+RemoveFile(InputFile="Results\Test_ReadDiversionRightsFromHydroBase_rg2007part_out.csv",IfNotFound=Ignore)
 ####################################################
 # Start defining test stations and aggregate information...
 # The selected locations represent the combinations of cases to test but are

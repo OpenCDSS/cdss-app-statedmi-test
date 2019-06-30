@@ -1,6 +1,6 @@
 # Test deleting table columns from a table
 # - specify table and columns with ${Property}
-StartLog(LogFile="Results/Test_DeleteTableColumns_Properties.TSTool.log")
+StartLog(LogFile="Results/Test_DeleteTableColumns_Properties.StateDMI.log")
 SetProperty(PropertyName="TestTable",PropertyType=String,PropertyValue="Table1")
 SetProperty(PropertyName="TestColumns",PropertyType=String,PropertyValue="double1,integer1")
 ReadTableFromDelimitedFile(TableID="${TestTable}",InputFile="Data\testtable.csv")

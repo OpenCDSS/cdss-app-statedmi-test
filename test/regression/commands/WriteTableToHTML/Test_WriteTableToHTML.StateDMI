@@ -1,5 +1,5 @@
 # Test writing a table to HTML using default parameters
-StartLog(LogFile="Results/Test_WriteTableToHTML.TSTool.log")
+StartLog(LogFile="Results/Test_WriteTableToHTML.StateDMI.log")
 RemoveFile(InputFile="Results/Test_WriteTableToHTML_out.html",IfNotFound=Ignore)
 ReadTableFromDelimitedFile(TableID="KNN_Aspinall",InputFile="Data\flow_sequence_dataset.csv")
 # Uncomment to regenerate the expected results...

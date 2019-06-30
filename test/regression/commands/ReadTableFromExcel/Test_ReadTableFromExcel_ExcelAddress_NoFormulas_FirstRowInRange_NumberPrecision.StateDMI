@@ -3,9 +3,9 @@
 #  * Data have no formulas
 #  * Name columns FirstRowInRange
 #  * Specify the numnber precision as 8
-StartLog(LogFile="Results/Test_ReadTableFromExcel_ExcelAddress_NoFormulas_FirstRowInRange_NumberPrecision.TSTool.log")
+StartLog(LogFile="Results/Test_ReadTableFromExcel_ExcelAddress_NoFormulas_FirstRowInRange_NumberPrecision.StateDMI.log")
 RemoveFile(InputFile="Results/Test_ReadTableFromExcel_ExcelAddress_NoFormulas_FirstRowInRange_NumberPrecision_out.csv",IfNotFound=Ignore)
-ReadTableFromExcel(TableID="Table_NoFormulas",InputFile="Data\TestWorkbook.xlsx",Worksheet="Address_NoFormulas",ExcelAddress="A1:G11",ExcelColumnNames=FirstRowInRange,NumberPrecision=8)
+ReadTableFromExcel(TableID="Table_NoFormulas",NumberPrecision=8,InputFile="Data\TestWorkbook.xlsx",Worksheet="Address_NoFormulas",ExcelAddress="A1:G11",ExcelColumnNames=FirstRowInRange)
 # Uncomment the following command to regenerate expected results
 # WriteTableToDelimitedFile(TableID="Table_NoFormulas",OutputFile="ExpectedResults\Test_ReadTableFromExcel_ExcelAddress_NoFormulas_FirstRowInRange_NumberPrecision_out.csv")
 WriteTableToDelimitedFile(TableID="Table_NoFormulas",OutputFile="Results\Test_ReadTableFromExcel_ExcelAddress_NoFormulas_FirstRowInRange_NumberPrecision_out.csv")

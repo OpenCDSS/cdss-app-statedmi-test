@@ -4,7 +4,7 @@
 # - Specify the column filters with ${Property}
 # - Specify the row count property with ${Property}
 # - Specify the DistinctColumns property with ${Property}
-StartLog(LogFile="Results/Test_CopyTable_DistinctColumns_Properties.TSTool.log")
+StartLog(LogFile="Results/Test_CopyTable_DistinctColumns_Properties.StateDMI.log")
 RemoveFile(InputFile="Results/Test_CopyTable_DistinctColumns_Properties_out.csv",IfNotFound=Ignore)
 SetProperty(PropertyName="TestTableID",PropertyType=String,PropertyValue="Table1")
 SetProperty(PropertyName="TestNewTableID",PropertyType=String,PropertyValue="Table1Copy")

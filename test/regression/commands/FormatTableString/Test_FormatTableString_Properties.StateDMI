@@ -1,6 +1,6 @@
 # Test formatting a string to a column in a table
 # - specify the table ID using ${Property}
-StartLog(LogFile="Results/Test_FormatTableString_Properties.TSTool.log")
+StartLog(LogFile="Results/Test_FormatTableString_Properties.StateDMI.log")
 RemoveFile(InputFile="Results/Test_FormatTableString_Properties_out.dv",IfNotFound=Ignore)
 # Generate some table data but converting time series to table
 SetProperty(PropertyName="TestTableID",PropertyType=String,PropertyValue="Table1")

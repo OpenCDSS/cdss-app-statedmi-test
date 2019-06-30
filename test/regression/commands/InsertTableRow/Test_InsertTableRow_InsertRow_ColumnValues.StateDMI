@@ -2,7 +2,7 @@
 # - default insert position at end
 # - specify the row to insert
 # - specify values to insert
-StartLog(LogFile="Results/Test_InsertTableRow_InsertRow_ColumnValues.TSTool.log")
+StartLog(LogFile="Results/Test_InsertTableRow_InsertRow_ColumnValues.StateDMI.log")
 RemoveFile(InputFile="Results/Test_InsertTableRow_InsertRow_ColumnValues_out.csv",IfNotFound=Ignore)
 ReadTableFromDelimitedFile(TableID="Table1",InputFile="Data\testtable.csv")
 InsertTableRow(TableID="Table1",InsertRow=2,InsertCount=5,ColumnValues="string1:NewString,double1:8.8888,integer1:8")

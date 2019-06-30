@@ -3,7 +3,7 @@
 # * Specify one join column
 # * Rename output columns
 # * Match a few of the rows
-StartLog(LogFile="Results/Test_JoinTable_PartialMatch.TSTool.log")
+StartLog(LogFile="Results/Test_JoinTable_PartialMatch.StateDMI.log")
 RemoveFile(InputFile="Results/Test_JoinTable_PartialMatch_out.csv",IfNotFound=Ignore)
 ReadTableFromDelimitedFile(TableID="Table1",InputFile="Data\testtable1.csv")
 ReadTableFromDelimitedFile(TableID="Table2",InputFile="Data\testtable3.csv")

@@ -1,5 +1,5 @@
 # Test creating a new Excel workbook and writing a simple definitions table
-StartLog(LogFile="Results/Test_NewExcelWorkbook_Definitions.TSTool.log")
+StartLog(LogFile="Results/Test_NewExcelWorkbook_Definitions.StateDMI.log")
 RemoveFile(InputFile="Results/Test_NewExcelWorkbook_Definitions_out.xlsx",IfNotFound=Ignore)
 # Create a new Excel workbook and populate with a simple definitions table
 NewExcelWorkbook(OutputFile="Results/Test_NewExcelWorkbook_Definitions_out.xlsx",Worksheets="TestSheet1,TestSheet2")

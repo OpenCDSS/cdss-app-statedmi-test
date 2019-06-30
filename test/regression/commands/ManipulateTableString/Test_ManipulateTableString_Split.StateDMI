@@ -1,5 +1,5 @@
 # Test splitting out a token from a string column based on a delimiter
-StartLog(LogFile="Results/Test_ManipulateTableString_Columns_Split.TSTool.log")
+StartLog(LogFile="Results/Test_ManipulateTableString_Columns_Split.StateDMI.log")
 RemoveFile(InputFile="Results/Test_ManipulateTableString_Columns_Split_out.dv",IfNotFound=Ignore)
 # Generate some table data but converting time series to table
 ReadTableFromDelimitedFile(TableID="Table1",InputFile="Data\testdata.csv")

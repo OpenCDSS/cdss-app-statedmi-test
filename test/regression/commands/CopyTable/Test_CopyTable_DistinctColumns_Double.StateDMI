@@ -1,7 +1,7 @@
 # Test copying a table read from a file
 # * Specify the distinct columns
 # * Distinct column is of type Double
-StartLog(LogFile="Results/Test_CopyTable_DistinctColumns_Double.TSTool.log")
+StartLog(LogFile="Results/Test_CopyTable_DistinctColumns_Double.StateDMI.log")
 RemoveFile(InputFile="Results/Test_CopyTable_DistinctColumns_Double_out.csv",IfNotFound=Ignore)
 ReadTableFromDelimitedFile(TableID="Table1",InputFile="Data\testtable2.csv")
 CopyTable(TableID="Table1",NewTableID="Table1Copy",IncludeColumns="Double",DistinctColumns="Double")

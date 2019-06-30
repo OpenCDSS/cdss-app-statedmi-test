@@ -1,6 +1,6 @@
 # Test writing a delimited file using default parameters and with column headers
 # - handle escaping quotes in strigns, using double quotes
-StartLog(LogFile="Results/Test_WriteTableToDelimitedFile_WithHeaders_EscapeQuotes.TSTool.log")
+StartLog(LogFile="Results/Test_WriteTableToDelimitedFile_WithHeaders_EscapeQuotes.StateDMI.log")
 RemoveFile(InputFile="Results/Test_WriteTableToDelimitedFile_WithHeaders_EscapeQuotes_out.csv",IfNotFound=Ignore)
 ReadTableFromDelimitedFile(TableID="table1",InputFile="Data\table_escaped_quoted_strings.csv")
 # Generate the results.  Quote strings to simulate the original input.

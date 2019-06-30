@@ -4,7 +4,7 @@
 # - Specify the table ID using ${Property}
 # - Specify the Excel file using ${Property}
 # - Specify the Excel worksheet using ${Property}
-StartLog(LogFile="Results/Test_WriteTableToExcel_Address_Properties.TSTool.log")
+StartLog(LogFile="Results/Test_WriteTableToExcel_Address_Properties.StateDMI.log")
 RemoveFile(InputFile="Results/Test_WriteTableToExcel_Address_Properties_out.xlsx",IfNotFound=Ignore)
 SetProperty(PropertyName="TestTableID1",PropertyType=String,PropertyValue="Table1")
 SetProperty(PropertyName="TestTableID2",PropertyType=String,PropertyValue="Table2")

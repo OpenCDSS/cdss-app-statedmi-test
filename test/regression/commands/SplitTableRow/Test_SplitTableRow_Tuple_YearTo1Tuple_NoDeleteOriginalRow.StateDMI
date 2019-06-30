@@ -2,7 +2,7 @@
 # - input data has year data values horizontal in row
 # - output has columns vertically
 # - DO NOT delete the original data after splitting
-StartLog(LogFile="Results/Test_SplitTableRow__Tuple_YearTo1Tuple_NoDeleteOriginalRow.TSTool.log")
+StartLog(LogFile="Results/Test_SplitTableRow__Tuple_YearTo1Tuple_NoDeleteOriginalRow.StateDMI.log")
 RemoveFile(InputFile="Results/Test_SplitTableRow__Tuple_YearTo1Tuple_NoDeleteOriginalRow_out.csv",IfNotFound=Ignore)
 ReadTableFromDelimitedFile(TableID="Table1",InputFile="Data\testtable-year-to-1tuple.csv")
 CopyTable(TableID="Table1",NewTableID="Table1Copy")

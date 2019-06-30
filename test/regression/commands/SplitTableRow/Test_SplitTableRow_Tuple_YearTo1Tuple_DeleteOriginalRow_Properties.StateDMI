@@ -3,7 +3,7 @@
 # - output has columns vertically
 # - delete the original data after splitting
 # - specify input with ${Property}
-StartLog(LogFile="Results/Test_SplitTableRow__Tuple_YearTo1Tuple_DeleteOriginalRow_Properties.TSTool.log")
+StartLog(LogFile="Results/Test_SplitTableRow__Tuple_YearTo1Tuple_DeleteOriginalRow_Properties.StateDMI.log")
 RemoveFile(InputFile="Results/Test_SplitTableRow__Tuple_YearTo1Tuple_DeleteOriginalRow_Properties_out.csv",IfNotFound=Ignore)
 ReadTableFromDelimitedFile(TableID="Table1",InputFile="Data\testtable-year-to-1tuple.csv")
 CopyTable(TableID="Table1",NewTableID="Table1Original")

@@ -1,7 +1,7 @@
 # Test writing a table to Excel
 # - Use ReadTableFromExcel to read the original, write a copy, an then read and compare
 # - Specify address block
-StartLog(LogFile="Results/Test_WriteTableToExcel_Address.TSTool.log")
+StartLog(LogFile="Results/Test_WriteTableToExcel_Address.StateDMI.log")
 RemoveFile(InputFile="Results/Test_WriteTableToExcel_Address_out.xlsx",IfNotFound=Ignore)
 # Read the table from the Excel data file
 ReadTableFromExcel(TableID="Table1",InputFile="Data\Definitions.xlsx",ExcelAddress="A5:D14",ExcelColumnNames=FirstRowInRange)
