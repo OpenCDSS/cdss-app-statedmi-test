@@ -1,0 +1,10 @@
+# Test reading instream flow rights data from HydroBase web services for a couple of generated stations
+StartLog(LogFile="Results/Test_ReadInstreamFlowRightsFromHydroBase_Rest.StateDMI.log")
+RemoveFile(InputFile="Results\Test_ReadInstreamFlowRightsFromHydroBase_out_Rest.csv",IfNotFound=Ignore)
+SetInstreamFlowStation(ID="362000",Name="InstreamFlow 1",IfNotFound=Add)
+SetInstreamFlowStation(ID="362002",Name="InstreamFlow 2",IfNotFound=Add)
+ReadInstreamFlowRightsFromHydroBase(DataStore="HydroBaseWeb",ID="*")
+# Uncomment the following command to regenerate the expected results.
+# WriteInstreamFlowRightsToList(OutputFile="ExpectedResults/Test_ReadInstreamFlowRightsFromHydroBase_out_Rest.csv")
+WriteInstreamFlowRightsToList(OutputFile="Results/Test_ReadInstreamFlowRightsFromHydroBase_out_Rest.csv")
+CompareFiles(InputFile1="ExpectedResults/Test_ReadInstreamFlowRightsFromHydroBase_out_Rest.csv",InputFile2="Results/Test_ReadInstreamFlowRightsFromHydroBase_out_Rest.csv",IfDifferent=Warn)
