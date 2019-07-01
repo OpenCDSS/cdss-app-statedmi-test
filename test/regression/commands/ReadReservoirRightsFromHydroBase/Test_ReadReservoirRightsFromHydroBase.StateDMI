@@ -1,6 +1,6 @@
 # Test reading instream flow rights data from HydroBase for a couple of generated stations
 StartLog(LogFile="Results/Test_ReadReservoirRightsFromHydroBase.StateDMI.log")
-RemoveFile(InputFile="Results\Test_ReadReservoirRightsFromHydroBase_out.csv")
+RemoveFile(InputFile="Results\Test_ReadReservoirRightsFromHydroBase_out.csv",IfNotFound=Ignore)
 SetReservoirStation(ID="363543",Name="Reservoir 1",IfNotFound=Add)
 SetReservoirStation(ID="364512",Name="Reservoir 2",IfNotFound=Add)
 ReadReservoirRightsFromHydroBase(ID="*")
@@ -8,3 +8,6 @@ ReadReservoirRightsFromHydroBase(ID="*")
 # WriteReservoirRightsToList(OutputFile="ExpectedResults/Test_ReadReservoirRightsFromHydroBase_out.csv")
 WriteReservoirRightsToList(OutputFile="Results/Test_ReadReservoirRightsFromHydroBase_out.csv")
 CompareFiles(InputFile1="ExpectedResults/Test_ReadReservoirRightsFromHydroBase_out.csv",InputFile2="Results/Test_ReadReservoirRightsFromHydroBase_out.csv",IfDifferent=Warn)
+# Below are used to visually inspect the results
+ReadTableFromDataStore(DataStore="HydroBase",Sql="select * from vw_cdss_NetAmts where wd = 36 and id = 3543",TableID="Test_Reservoir_NetAmts_3603543")
+ReadTableFromDataStore(DataStore="HydroBase",Sql="select * from vw_cdss_NetAmts where wd = 36 and id = 4512",TableID="Test_Reservoir_NetAmts_3604512")
