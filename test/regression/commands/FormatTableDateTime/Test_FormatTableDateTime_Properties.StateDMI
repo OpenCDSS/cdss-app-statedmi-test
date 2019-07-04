@@ -7,10 +7,9 @@
 # - set column to insert before using ${Property}
 StartLog(LogFile="Results/Test_FormatTableDateTime_Properties.TSTool.log")
 RemoveFile(InputFile="Results/Test_FormatTableDateTime_Properties_out.dv",IfNotFound=Ignore)
-# Generate table data by converting time series to table
-NewPatternTimeSeries(Alias="ts1",NewTSID="ts1.source1.type1.Day",Description="Test data",SetStart="2000-09-15",SetEnd="2001-03-15",Units="cfs",MissingValue=NaN,PatternValues="1,2,4,7,,10,6,.5,,.5")
+# Read previously generated data (from TSTool)
 SetProperty(PropertyName="TestTableID",PropertyType=String,PropertyValue="table1")
-TimeSeriesToTable(TableID="${TestTableID}",DateTimeColumn="Date",ValueColumn="value",OutputPrecision=2,IfTableNotFound="Create")
+ReadTableFromDelimitedFile(TableID="${TestTableID}",InputFile="Data\timeseries.csv",DateTimeColumns="Date",DoubleColumns="Value")
 # Format the date/times in the table
 SetProperty(PropertyName="TestInputColumn",PropertyType=String,PropertyValue="Date")
 SetProperty(PropertyName="TestOutputColumn",PropertyType=String,PropertyValue="DateExcel")

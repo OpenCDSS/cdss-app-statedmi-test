@@ -17,5 +17,5 @@ CalculateWellStationEfficiencies(ID="*",EffReportFile="Results/Test_CalculateWel
 # WriteWellStationsToStateMod(OutputFile="ExpectedResults/Test_CalculateWellStationEfficiencies_out.wes")
 # CalculateWellStationEfficiencies(ID="*",EffReportFile="ExpectedResults/Test_CalculateWellStationEfficiencies_out.txt")
 WriteWellStationsToStateMod(OutputFile="Results/Test_CalculateWellStationEfficiencies_out.wes")
-CompareFiles(InputFile1="ExpectedResults/Test_CalculateWellStationEfficiencies_out.wes",InputFile2="Results/Test_CalculateWellStationEfficiencies_out.wes",WarnIfDifferent=True)
-CompareFiles(InputFile1="ExpectedResults/Test_CalculateWellStationEfficiencies_out.txt",InputFile2="Results/Test_CalculateWellStationEfficiencies_out.txt",WarnIfDifferent=True)
+CompareFiles(InputFile1="ExpectedResults/Test_CalculateWellStationEfficiencies_out.wes",InputFile2="Results/Test_CalculateWellStationEfficiencies_out.wes",IfDifferent=Warn)
+CompareFiles(InputFile1="ExpectedResults/Test_CalculateWellStationEfficiencies_out.txt",InputFile2="Results/Test_CalculateWellStationEfficiencies_out.txt",IfDifferent=Warn)
