@@ -15,6 +15,6 @@ SetCULocationClimateStationWeights(ID="*623",Weights="station1,.1,.2;station2,.9
 # Uncomment the following command to regenerate the expected results.
 # WriteCULocationsToList(OutputFile="ExpectedResults/Test_SetCULocationClimateStationWeights_out.csv")
 WriteCULocationsToList(OutputFile="Results/Test_SetCULocationClimateStationWeights_out.csv")
-CompareFiles(InputFile1="ExpectedResults/Test_SetCULocationClimateStationWeights_out.csv",InputFile2="Results/Test_SetCULocationClimateStationWeights_out.csv",WarnIfDifferent=True)
-CompareFiles(InputFile1="ExpectedResults/Test_SetCULocationClimateStationWeights_out_ClimateStations.csv",InputFile2="Results/Test_SetCULocationClimateStationWeights_out_ClimateStations.csv",WarnIfDifferent=True)
-CompareFiles(InputFile1="ExpectedResults/Test_SetCULocationClimateStationWeights_out_Collections.csv",InputFile2="Results/Test_SetCULocationClimateStationWeights_out_Collections.csv",WarnIfDifferent=True)
+CompareFiles(InputFile1="ExpectedResults/Test_SetCULocationClimateStationWeights_out.csv",InputFile2="Results/Test_SetCULocationClimateStationWeights_out.csv",IfDifferent=Warn)
+CompareFiles(InputFile1="ExpectedResults/Test_SetCULocationClimateStationWeights_out_ClimateStations.csv",InputFile2="Results/Test_SetCULocationClimateStationWeights_out_ClimateStations.csv",IfDifferent=Warn)
+CompareFiles(InputFile1="ExpectedResults/Test_SetCULocationClimateStationWeights_out_Collections.csv",InputFile2="Results/Test_SetCULocationClimateStationWeights_out_Collections.csv",IfDifferent=Warn)
