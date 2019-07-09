@@ -8,4 +8,4 @@ SetDiversionAggregateFromList(ListFile="Data\aggregates.csv",IDCol=1,NameCol=2,P
 # Uncomment the following command to regenerate the expected results.
 # WriteCULocationsToList(OutputFile="ExpectedResults/Test_SetDiversionAggregateFromList_CULocations_out.csv")
 WriteCULocationsToList(OutputFile="Results/Test_SetDiversionAggregateFromList_CULocations_out.csv")
-CompareFiles(InputFile1="ExpectedResults/Test_SetDiversionAggregateFromList_CULocations_out_Collections.csv",InputFile2="Results/Test_SetDiversionAggregateFromList_CULocations_out_Collections.csv",WarnIfDifferent=True)
+CompareFiles(InputFile1="ExpectedResults/Test_SetDiversionAggregateFromList_CULocations_out_Collections.csv",InputFile2="Results/Test_SetDiversionAggregateFromList_CULocations_out_Collections.csv",IfDifferent=Warn)
