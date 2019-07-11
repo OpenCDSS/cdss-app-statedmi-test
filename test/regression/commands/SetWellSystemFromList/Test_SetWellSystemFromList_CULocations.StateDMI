@@ -8,4 +8,4 @@ SetWellSystemFromList(ListFile="Data\systems.csv",Year=1998,Div=3,PartType=Parce
 # Uncomment the following command to regenerate the expected results.
 # WriteCULocationsToList(OutputFile="ExpectedResults/Test_SetWellSystemFromList_CULocations_out.csv")
 WriteCULocationsToList(OutputFile="Results/Test_SetWellSystemFromList_CULocations_out.csv")
-CompareFiles(InputFile1="ExpectedResults/Test_SetWellSystemFromList_CULocations_out_Collections.csv",InputFile2="Results/Test_SetWellSystemFromList_CULocations_out_Collections.csv",WarnIfDifferent=True)
+CompareFiles(InputFile1="ExpectedResults/Test_SetWellSystemFromList_CULocations_out_Collections.csv",InputFile2="Results/Test_SetWellSystemFromList_CULocations_out_Collections.csv",IfDifferent=Warn)

@@ -10,4 +10,4 @@ SetWellAggregate(ID="Location3",Year=1950,Div=3,PartType=Parcel,PartIDs="Part31,
 # Uncomment the following command to regenerate the expected results.
 # WriteCULocationsToList(OutputFile="ExpectedResults/Test_SetWellAggregate_CULocations_out.csv")
 WriteCULocationsToList(OutputFile="Results/Test_SetWellAggregate_CULocations_out.csv")
-CompareFiles(InputFile1="ExpectedResults/Test_SetWellAggregate_CULocations_out_Collections.csv",InputFile2="Results/Test_SetWellAggregate_CULocations_out_Collections.csv",WarnIfDifferent=True)
+CompareFiles(InputFile1="ExpectedResults/Test_SetWellAggregate_CULocations_out_Collections.csv",InputFile2="Results/Test_SetWellAggregate_CULocations_out_Collections.csv",IfDifferent=Warn)
