@@ -10,4 +10,4 @@ SetWellSystem(ID="Well3",Year=1950,Div=3,PartType=Parcel,PartIDs="Part31,Part32,
 # Uncomment the following command to regenerate the expected results.
 # WriteWellStationsToList(OutputFile="ExpectedResults/Test_SetWellSystem_WellStations_out.csv")
 WriteWellStationsToList(OutputFile="Results/Test_SetWellSystem_WellStations_out.csv")
-CompareFiles(InputFile1="ExpectedResults/Test_SetWellSystem_WellStations_out_Collections.csv",InputFile2="Results/Test_SetWellSystem_WellStations_out_Collections.csv",WarnIfDifferent=True)
+CompareFiles(InputFile1="ExpectedResults/Test_SetWellSystem_WellStations_out_Collections.csv",InputFile2="Results/Test_SetWellSystem_WellStations_out_Collections.csv",IfDifferent=Warn)
