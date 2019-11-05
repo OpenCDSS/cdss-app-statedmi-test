@@ -1,0 +1,39 @@
+# Test reading irrigation practice time series data from HydroBase:
+# - read a subset of groundwater-only structures with aggregation using WDID parts
+StartLog(LogFile="Results/Test_ReadIrrigationPracticeTSFromHydroBase_ArkExGwOnly.StateDMI.log")
+RemoveFile(InputFile="Results\Test_ReadIrrigationPracticeTSFromHydroBase_ArkExGwOnly_out.ipy",IfNotFound=Ignore)
+SetOutputPeriod(OutputStart="2000",OutputEnd="2016")
+SetCULocation(ID="67AWA015",IfNotFound=Add)
+SetCULocation(ID="67AWA016",IfNotFound=Add)
+SetCULocation(ID="67AWA017",IfNotFound=Add)
+SetCULocation(ID="67AWA018",IfNotFound=Add)
+SetCULocation(ID="67AWA019",IfNotFound=Add)
+SetCULocation(ID="67AWA021",IfNotFound=Add)
+SetCULocation(ID="67AWA022",IfNotFound=Add)
+SetCULocation(ID="67AWA023",IfNotFound=Add)
+SetCULocation(ID="67AWA024",IfNotFound=Add)
+SetCULocation(ID="67AWA602",IfNotFound=Add)
+# Set aggregates using list file and column numbers (traditional approach)
+SetWellAggregateFromList(ListFile="Data\ArkEx_GWAgg_Only.csv",TableID="WellAggregateTable",PartType=Well,IDCol="1",PartIDsCol="2",PartIDTypeColumn="3",PartsListedHow=InColumn)
+# Set aggregates using list file and column names (new approach)
+# SetWellAggregateFromList(ListFile="Data\ArkEx_GWAgg_Only.csv",TableID="WellAggregateTable",PartType=Well,IDCol="Structure_ID",PartIDsCol="GW_ID1",PartIDTypeColumn="GW_TYPE1",PartsListedHow=InColumn)
+CreateIrrigationPracticeTSForCULocations(ID="*")
+ReadIrrigationPracticeTSFromHydroBase(ID="*",Div="2")
+# Uncomment the following command to regenerate the expected results.
+# WriteIrrigationPracticeTSToStateCU(OutputFile="ExpectedResults/Test_ReadIrrigationPracticeTSFromHydroBase_ArkExGwOnly_out.ipy")
+WriteIrrigationPracticeTSToStateCU(OutputFile="Results/Test_ReadIrrigationPracticeTSFromHydroBase_ArkExGwOnly_out.ipy")
+CompareFiles(InputFile1="ExpectedResults/Test_ReadIrrigationPracticeTSFromHydroBase_ArkExGwOnly_out.ipy",InputFile2="Results/Test_ReadIrrigationPracticeTSFromHydroBase_ArkExGwOnly_out.ipy",IfDifferent=Warn)
+# ---------------------
+# Commands to read tables for data used above, used to confirm how data are used in tests.
+# - first read the structure of interest
+# - will return structure_num=139102
+ReadTableFromDataStore(DataStore="HydroBase",Sql="select * from vw_CDSS_Structure where wd=67 and id=5060",TableID="StructureView")
+# Read the wells to parcels relationships
+# - the following reads parcels associated with a well WDID 6705060, as a test
+# - note the receipt, wd, id, and cal_year
+ReadTableFromDataStore(DataStore="HydroBase",Top=10,Sql="select * from vw_CDSS_WellsWelltoParcel where wd=67 and id=5060",TableID="WellsWellToParcel")
+# Once parcels are known, the ParcelUseTS can be read
+# - general query below can be used to see column names
+# - specific query illustrates how data are returned.
+# ReadTableFromDataStore(DataStore="HydroBase",DataStoreTable="vw_CDSS_ParcelUseTS",Top=10,TableID="ParcelUseTS")
+ReadTableFromDataStore(DataStore="HydroBase",Sql="select * from vw_CDSS_ParcelUseTS where cal_year=2003 and parcel_num=162563",TableID="ParcelUseTS")
