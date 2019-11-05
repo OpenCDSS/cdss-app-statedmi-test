@@ -1,4 +1,5 @@
 # Test reading irrigation practice time series data from HydroBase
+# - these structures are explicit structures
 StartLog(LogFile="Results/Test_ReadIrrigationPracticeTSFromHydroBase.StateDMI.log")
 RemoveFile(InputFile="Results\Test_ReadIrrigationPracticeTSFromHydroBase_out.ipy")
 SetOutputPeriod(OutputStart="1950",OutputEnd="2007")
