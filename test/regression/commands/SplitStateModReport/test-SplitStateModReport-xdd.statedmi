@@ -1,0 +1,3 @@
+# Test splitting a StateMod xdd report file
+StartLog(LogFile="results/test-SplitStateModReport-xdd.statedmi.log")
+SplitStateModReport(ReportFile="data/cm2015.xdd",OutputFolder="results",OutputFile="NODEID.xdd",IfOutputFolderDoesNotExist=Create)
