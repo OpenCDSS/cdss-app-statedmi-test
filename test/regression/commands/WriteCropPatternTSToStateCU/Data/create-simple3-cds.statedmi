@@ -1,0 +1,4 @@
+# Read the older format and save as current format.
+# - StateDMI 5+ saves with crops alphabetized
+ReadCropPatternTSFromStateCU(InputFile="Data/simple2.cds")
+WriteCropPatternTSToStateCU(OutputFile="Data/simple3.cds")

@@ -13,4 +13,4 @@ FillCropPatternTSConstant(ID="*",CropType="*",Constant=0)
 # Uncomment the following command to regenerate the expected results.
 # WriteCropPatternTSToStateCU(OutputFile="ExpectedResults/Test_FillCropPatternTSConstant_out.cds")
 WriteCropPatternTSToStateCU(OutputFile="Results/Test_FillCropPatternTSConstant_out.cds")
-CompareFiles(InputFile1="ExpectedResults/Test_FillCropPatternTSConstant_out.cds",InputFile2="Results/Test_FillCropPatternTSConstant_out.cds",WarnIfDifferent=True)
+CompareFiles(InputFile1="ExpectedResults/Test_FillCropPatternTSConstant_out.cds",InputFile2="Results/Test_FillCropPatternTSConstant_out.cds",IfDifferent=Warn)

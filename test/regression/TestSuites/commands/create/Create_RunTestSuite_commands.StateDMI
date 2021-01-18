@@ -2,8 +2,8 @@
 # Create the regression test runner for the
 # StateDMI/test/regression/TestSuites/commands files.
 #
-# Only command files that match Test_*.StateDMI are included in the output.
-# Don't append the generated commands, in order to force the old file to be
-# overwritten.
+# Only command files that match Test_*.StateDMI and test-*.statedmi (ignoring case)
+# are included in the output.
+# Don't append the generated commands, in order to force the old file to be overwritten.
 #
-CreateRegressionTestCommandFile(SearchFolder="..\..\..\commands",OutputFile="..\run\RunRegressionTest_commands.StateDMI",Append=False,IncludeTestSuite="*",IncludeOS="*")
+CreateRegressionTestCommandFile(SearchFolder="..\..\..\commands",OutputFile="..\run\RunRegressionTest_commands.statedmi",Append=False,IncludeTestSuite="*",IncludeOS="*")

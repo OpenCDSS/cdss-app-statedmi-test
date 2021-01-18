@@ -2,11 +2,11 @@
 # - system information is set with WDID and receipt numbers (not parcels)
 # - read StateCU locations and StateMod wells so can test both
 StartLog(LogFile="Results/Test_SetWellSystemFromList_SP_WDID_Receipt.StateDMI.log")
-RemoveFile(InputFile="Results\Test_SetWellSystemFromList_SP_WDID_Receipt_outcu_Collections.csv")
-RemoveFile(InputFile="Results\Test_SetWellSystemFromList_SP_WDID_Receipt_out_Collections.csv")
+RemoveFile(InputFile="Results\Test_SetWellSystemFromList_SP_WDID_Receipt_outcu_Collections.csv",IfNotFound=Ignore)
+RemoveFile(InputFile="Results\Test_SetWellSystemFromList_SP_WDID_Receipt_out_Collections.csv",IfNotFound=Ignore)
 ReadCULocationsFromStateCU(InputFile="Data\SP2015.str")
 ReadWellStationsFromStateMod(InputFile="Data\SPDSS.wes")
-SetWellSystemFromList(ListFile="Data\SP_GWAgg_04212016.csv",PartType=Well,IDCol=1,PartIDsCol=2,PartIDTypeColumn="3",PartsListedHow=InColumn)
+SetWellSystemFromList(ListFile="Data\SP_GWAgg_04212016.csv",PartType=Well,IDCol="1",PartIDsCol="2",PartIDTypeColumn="3",PartsListedHow=InColumn)
 # Uncomment the following 2 commands to regenerate the expected results.
 # WriteCULocationsToList(OutputFile="ExpectedResults/Test_SetWellSystemFromList_SP_WDID_Receipt_outcu.csv")
 # WriteWellStationsToList(OutputFile="ExpectedResults/Test_SetWellSystemFromList_SP_WDID_Receipt_out.csv")

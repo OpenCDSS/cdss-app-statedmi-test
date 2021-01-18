@@ -1,0 +1,27 @@
+StartLog(LogFile="Results/Test_ReadDiversionHistoricalTSMonthlyFromHydroBase_cm2006part_Agg_ge20200720.StateDMI.log")
+# Test reading diversion historical TS monthly data from HydroBase for one aggregate structure
+# Use the cm2006 structure
+#@require datastore HydroBase >= 20200720
+# - known to work with Hydrobase version 20200720
+# Default parameter values
+RemoveFile(InputFile="Results\Test_ReadDiversionHistoricalTSMonthlyFromHydroBase_cm2006part_Agg_ge20200720_out.ddh",IfNotFound=Ignore)
+SetOutputPeriod(OutputStart="1949-10",OutputEnd="2004-09")
+SetOutputYearType(OutputYearType=Water)
+####################################################
+#
+SetDiversionStation(ID="39_ADC041",Name="Elk Creek",IfNotFound=Add)
+SetDiversionAggregate(ID="39_ADC041",PartIDs="390500,390501,390503,390504,390510,390525,390530,390531,390536,390542,390556,390579,390592,390593,390598,390603,390615,390626,390633,390654,390655,390656,390657,390660,390661,390662,390667,390673,390674,390676,390679,390688,390689,390810,390852,390863,390934,390983,393507")
+####################################################
+# Use the defaults to read
+# Use diversion comments, no filling
+ReadDiversionHistoricalTSMonthlyFromHydroBase(ID="*")
+# Uncomment the following command to regenerate the expected results.
+WriteDiversionHistoricalTSMonthlyToStateMod(OutputFile="ExpectedResults/Test_ReadDiversionHistoricalTSMonthlyFromHydroBase_cm2006part_Agg_ge20200720_out.ddh")
+WriteDiversionHistoricalTSMonthlyToStateMod(OutputFile="Results/Test_ReadDiversionHistoricalTSMonthlyFromHydroBase_cm2006part_Agg_ge20200720_out.ddh")
+CompareFiles(InputFile1="ExpectedResults/Test_ReadDiversionHistoricalTSMonthlyFromHydroBase_cm2006part_Agg_ge20200720_out.ddh",InputFile2="Results/Test_ReadDiversionHistoricalTSMonthlyFromHydroBase_cm2006part_Agg_ge20200720_out.ddh",IfDifferent=Warn)
+# Use the following to query data to check results.
+# - paste the relevant data into Excel and add up the monthly values to cross-check.
+# - filling with diversion comments is on by default and can add some additional values,
+#   but typically only additional zero values
+ReadTableFromDataStore(DataStore="HydroBase",Sql="select * from vw_CDSS_AnnualAmt where wd = 39 and id in (500,501,503,504,510,525,530,531,536,542,556,579,592,593,598,603,615,626,633,654,655,656,657,660,661,662,667,673,674,676,679,688,689,810,852,863,934,983,3507) order by irr_year, wd, id",TableID="Test_Diversions")
+# ReadTableFromDataStore(DataStore="HydroBase",Sql="select * from vw_CDSS_DivRec_WaterClass where wdid in ('3900500','3900501','3900503','3900504','3900510','3900525','3900530','3900531','3900536','3900542','3900556','3900579','3900592','3900593','3900598','3900603','3900615','3900626','3900633','3900654','3900655','3900656','3900657','3900660','3900661','3900662','3900667','3900673','3900674','3900676','3900679','3900688','3900689','3900810','3900852','3900863','3900934','3900983','3903507') and divrectype = 'DivComment' order by por_start, wdid",TableID="Test_DivComments")

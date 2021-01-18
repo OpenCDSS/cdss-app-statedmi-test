@@ -1,0 +1,18 @@
+StartLog(LogFile="Results/Test_ReadTableFromDataStore_HydroBase_Sql_DivTotal_ge20200720.StateDMI.log")
+# Test reading DivTotal data from a HydroBase data store using a SQL String
+# The period is specified to try to freeze the queery so that future database updates
+# don't break the test
+#
+# Test is known to work with database 20200720.
+# - don't include quality, dwc, maxq_date, or nobs since no longer filled in.
+#@require datastore HydroBase >= 20200720
+RemoveFile(InputFile="Results/Test_ReadTableFromDataStore_HydroBase_Sql_DivTotal_ge20200720_out.csv",IfNotFound=Ignore)
+# Don't query meas_num because it may change between database versions.
+ReadTableFromDataStore(DataStore="HydroBase",Sql="/* Test reading diversion records */ select structure_num, irr_year, fdu, ldu, maxq, amt_nov, amt_dec from vw_CDSS_AnnualAmt where wd = 1 and id = 501 and irr_year >= 1970 and irr_year <= 1990 order by irr_year",TableID="DivTotal",RowCountProperty="Test_ReadTableFromDataStore_HydroBase_Sql_DivTotal")
+# Uncomment to regenerate expected results
+# WriteTableToDelimitedFile(TableID="DivTotal",OutputFile="ExpectedResults/Test_ReadTableFromDataStore_HydroBase_Sql_DivTotal_ge20200720_out.csv")
+WriteTableToDelimitedFile(TableID="DivTotal",OutputFile="Results/Test_ReadTableFromDataStore_HydroBase_Sql_DivTotal_ge20200720_out.csv")
+# Do regression comparison with the expected results
+CompareFiles(InputFile1="ExpectedResults/Test_ReadTableFromDataStore_HydroBase_Sql_DivTotal_ge20200720_out.csv",InputFile2="Results/Test_ReadTableFromDataStore_HydroBase_Sql_DivTotal_ge20200720_out.csv",IfDifferent=Warn)
+# Query the full table to help troubleshoot
+ReadTableFromDataStore(DataStore="HydroBase",Sql="select * from vw_CDSS_AnnualAmt where wd = 1 and id = 501",TableID="DivTotal2",RowCountProperty="Test_ReadTableFromDataStore_HydroBase_Sql_DivTotal")

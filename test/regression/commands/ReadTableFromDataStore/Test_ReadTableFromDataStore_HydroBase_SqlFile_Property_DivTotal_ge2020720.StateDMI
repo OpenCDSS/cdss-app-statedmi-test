@@ -1,0 +1,15 @@
+StartLog(LogFile="Results/Test_ReadTableFromDataStore_HydroBase_SqlFile_Property_DivTotal_ge20200407.StateDMI.log")
+# Test reading DivTotal data from a HydroBase data store using a SQL file
+# - The period is specified to freeze the queery so that future database updates don't break the test
+# - The ${Property} notation is used to test property value replacement
+#
+#@require datastore HydroBase >= 20200720
+# - known to work with HydroBase 20200720
+# - don't query quality, dwc, maxq_date, or nobs since no longer filled in
+RemoveFile(InputFile="Results/Test_ReadTableFromDataStore_HydroBase_SqlFile_Property_DivTotal_ge20200407_out.csv",IfNotFound=Ignore)
+ReadTableFromDataStore(DataStore="HydroBase",SqlFile="Data\SqlFile_DivTotal_ge20200720.sql",TableID="DivTotal")
+# Uncomment to regenerate expected results
+# WriteTableToDelimitedFile(TableID="DivTotal",OutputFile="ExpectedResults/Test_ReadTableFromDataStore_HydroBase_SqlFile_Property_DivTotal_ge20200407_out.csv")
+WriteTableToDelimitedFile(TableID="DivTotal",OutputFile="Results/Test_ReadTableFromDataStore_HydroBase_SqlFile_Property_DivTotal_ge20200407_out.csv")
+# Do regression comparison with the expected results
+CompareFiles(InputFile1="ExpectedResults/Test_ReadTableFromDataStore_HydroBase_SqlFile_Property_DivTotal_ge20200407_out.csv",InputFile2="Results/Test_ReadTableFromDataStore_HydroBase_SqlFile_Property_DivTotal_ge20200407_out.csv",IfDifferent=Warn)

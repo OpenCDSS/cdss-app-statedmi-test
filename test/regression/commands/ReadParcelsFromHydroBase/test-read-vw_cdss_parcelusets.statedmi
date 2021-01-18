@@ -1,0 +1,8 @@
+StartLog(LogFile="Results/test-read-vw_cdss_parcelusets.statedmi.log")
+#
+# Read ParcelUseTS
+SetDebugLevel(LogFileLevel=1)
+# ReadTableFromDataStore(DataStore="HydroBase",Sql="select top 10 * from vw_cdss_parcelusets",TableID="ParcelUseTS")
+ReadTableFromDataStore(DataStore="HydroBase",Sql="select top 10 * from vw_CDSS_ParcelUseTSStructureToParcel",TableID="ParcelUseTS")
+SetDebugLevel(ScreenLevel=0,LogFileLevel=0)
+ReadTableFromDataStore(DataStore="HydroBase",Sql="select * from vw_CDSS_WellsWellToParcel where SUBSTRING(CAST(parcel_id as varchar),1,3) = '267'",TableID="Wells")

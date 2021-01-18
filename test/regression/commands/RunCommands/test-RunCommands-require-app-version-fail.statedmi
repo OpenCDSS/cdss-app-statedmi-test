@@ -1,0 +1,4 @@
+# Test that requiring a bad application version fails.
+# - use a StateDMI version far into the future
+# - expect the command to fail
+RunCommands(InputFile="test-RunCommands-require-app-version-fail0.xxx")
