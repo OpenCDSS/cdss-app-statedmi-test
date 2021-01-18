@@ -1,0 +1,19 @@
+StartLog(LogFile="Results/Test_ReadTableFromDataStore_HydroBase_Sql_Property_DivTotal_ge20200720.StateDMI.log")
+# Test reading DivTotal data from a HydroBase data store using a SQL String
+# - The period is specified to freeze the queery so that future database updates don't break the test
+# - The identifier is specified with the ${property} notation to test using properties
+#
+# These results are known to work with HydroBase version 20200720
+# - quality, dwc, maxq_date, and nobs are not queried since no longer filled in
+#@require datastore HydroBase >= 20200720
+RemoveFile(InputFile="Results/Test_ReadTableFromDataStore_HydroBase_Sql_Property_DivTotal_ge20200720_out.csv",IfNotFound=Ignore)
+SetProperty(PropertyName="id",PropertyType=String,PropertyValue="501")
+ReadTableFromDataStore(DataStore="HydroBase",Sql="select structure_num, irr_year, fdu, ldu, maxq, amt_nov, amt_dec from vw_CDSS_AnnualAmt where wd = 1 and id = 501 and irr_year >= 1970 and irr_year <= 1990 order by irr_year",TableID="DivTotal")
+# Uncomment to regenerate expected results
+# WriteTableToDelimitedFile(TableID="DivTotal",OutputFile="ExpectedResults/Test_ReadTableFromDataStore_HydroBase_Sql_Property_DivTotal_ge20200720_out.csv")
+WriteTableToDelimitedFile(TableID="DivTotal",OutputFile="Results/Test_ReadTableFromDataStore_HydroBase_Sql_Property_DivTotal_ge20200720_out.csv")
+# Do regression comparison with the expected results
+CompareFiles(InputFile1="ExpectedResults/Test_ReadTableFromDataStore_HydroBase_Sql_Property_DivTotal_ge20200720_out.csv",InputFile2="Results/Test_ReadTableFromDataStore_HydroBase_Sql_Property_DivTotal_ge20200720_out.csv",IfDifferent=Warn)
+# Use the following for troubleshooting
+ReadTableFromDataStore(DataStore="HydroBase",Sql="select * from vw_CDSS_AnnualAmt where wd = 1 and id = 501 order by irr_year",TableID="DivTotal2")
+ReadTableFromDataStore(DataStore="HydroBase",Sql="select count(*) from vw_CDSS_AnnualAmt where dwc is not null",TableID="DivTotal2")

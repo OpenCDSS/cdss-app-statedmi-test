@@ -1,0 +1,4 @@
+# Test of @require comment, to be run in UI.
+#
+# @require datastore HydroBase >= 20200720
+# @require app StateDMI >= 5.00.04

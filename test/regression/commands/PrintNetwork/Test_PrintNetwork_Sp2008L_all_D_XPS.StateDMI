@@ -1,4 +1,6 @@
 # Test printing generalized Sp2008L network file, full network, D-size paper to an XPS file
+# - disable for now since automating printing is R&D
+#@enabled False
 StartLog(LogFile="Results/Test_PrintNetwork_Sp2008L_all_D_XPS.StateDMI.log")
 # SetDebugLevel(LogFileLevel=20)
 RemoveFile(InputFile="Results\Test_ReadNetworkFromStateMod_Sp2008L_all_D_XPS.xps",IfNotFound=Ignore)

@@ -1,0 +1,8 @@
+#@readOnly
+#@enabled False
+#@expectedStatus Failure
+#@expectedStatus Warning
+#@require application StateDMI >= 5.00.05
+#@require application StateDMI >= 5.00.07
+#@require datastore HydroBase >= 20200720
+#@require datastore HydroBase >= 20250720

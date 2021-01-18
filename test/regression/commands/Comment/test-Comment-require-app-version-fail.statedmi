@@ -1,0 +1,5 @@
+StartLog(LogFile="Results/test-Comment-require-app-version-fail.statedmi.log")
+# Test that StateDMI application is valid
+# - use a future version
+# - this should fail but for automated testing a test with failed requirements will not be run
+#@return application StateDMI >= 999.999.999

@@ -1,5 +1,5 @@
 # Collections listed in rows
 # ID, Name, PartIDs
-Location1,Location 1,Part11,Part12,Part13
-Location2,Location 2,Part21,Part22,Part23
-Location3,Location 3,Part31,Part32,Part33,Part34,Part35
+Location1,Location 1,1234567,2345678,3456789
+Location2,Location 2,1122334,2233445,3344556
+Location3,Location 3,1112223,2223334,3334445,4445556,5556667

@@ -7,7 +7,6 @@ RemoveFile(InputFile="Results/Test_ReadTableFromDBF_Top_out.csv",IfNotFound=Igno
 ReadTableFromDBF(TableID="ClimateStations",InputFile="Data\div1_climatestations.dbf",Top=10)
 # Uncomment the following to regenerate the expected results.
 # WriteTableToDelimitedFile(TableID="ClimateStations",OutputFile="ExpectedResults\Test_ReadTableFromDBF_Top_out.csv")
-# Generate the results.
 WriteTableToDelimitedFile(TableID="ClimateStations",OutputFile="Results\Test_ReadTableFromDBF_Top_out.csv")
 # Do regression comparison with the original input (possible because strings
 # and integers with no formatting issues).

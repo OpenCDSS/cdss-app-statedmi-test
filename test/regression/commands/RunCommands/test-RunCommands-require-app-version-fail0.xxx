@@ -1,0 +1,7 @@
+StartLog(LogFile="results/test-RunCommands-require-app-version-fail0.xxx.log")
+# Test that requiring a bad application version fails.
+# - this is the command file that is run by RunCommands
+# - use a StateDMI version far into the future
+# - don't use .statedmi file extension because don't want this to be run independently
+#@expectedStatus Failure
+#@require application StateDMI >= 999.999.000
