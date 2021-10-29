@@ -1,0 +1,116 @@
+StartLog(LogFile="Results/Test_ReadCropPatternTSFromParcels_ArkEx.StateDMI.log")
+# CDS command file for Arkansas River Example - testing new parcel command StateDMI functionality
+# - see also the similar ReadCropPatternTSFromHydoBase test,
+#   results should match for all except GW-only (this command works) and this command is faster
+#@require datastore HydroBase >= 20200720
+#@require application StateDMI >= 5.00.00
+#
+# Remove output file from previous run.
+RemoveFile(InputFile="Results/Test_ReadCropPatternTSFromParcels_ArkEx_out.cds",IfNotFound=Ignore)
+#
+# Step 1 - Set output period and read CU locations
+SetOutputPeriod(OutputStart="2000",OutputEnd="2016")
+ReadCULocationsFromList(ListFile="Data/ArkEx_StructList.csv",IDCol=1)
+#
+# Step 2 - Read SW aggregates, divsys, and GW aggregates
+SetDiversionSystemFromList(ListFile="Data/ArkEx_SWDivSys.csv",IDCol="1",NameCol="2",PartIDsCol="3",PartsListedHow=InRow)
+SetDiversionAggregateFromList(ListFile="Data/ArkEx_SWAgg.csv",IDCol="1",NameCol="2",PartIDsCol="3",PartsListedHow=InColumn)
+#
+SetWellSystemFromList(ListFile="Data/ArkEx_GWAgg_Only.csv",PartType=Well,IDCol="1",PartIDsCol="2",PartIDTypeColumn="3",PartsListedHow=InColumn,IfNotFound=Warn)
+#
+# Step 3 - Initialize *.cds and read acreage/crops from HydroBase
+CreateCropPatternTSForCULocations(ID="*",Units="ACRE")
+#
+# Old commands read CDS directly from HydroBase.
+# New commands read parcels first and then read CDS from parcels.
+# - this is more transparent and also faster
+# - these commands are processed after ReadCropPatternTSFromHydroBase tests so can compare with those results.
+# ReadCropPatternTSFromHydroBase(ID="*",InputStart="2003",InputEnd="2016")
+ReadParcelsFromHydroBase(ID="*",InputStart="2003",InputEnd="2016")
+ReadCropPatternTSFromParcels(ID="*",InputStart="2003",InputEnd="2016")
+# Write the model output in verbose mode to see all data, even cases where data not added to CDS.
+# - this is used in visual validation
+WriteParcelsToFile(OutputFile="Results/Test_ReadCropPatternTSFromParcels_ArkEx_ModelParcelSupply_BeforeCDS_out.txt",Verbose=True)
+WriteParcelsToFile(OutputFile="Results/Test_ReadCropPatternTSFromParcels_ArkEx_ParcelSupply_BeforeCDS_out.txt",FileFormat=ParcelSupply,Verbose=True)
+#
+# Step 4 - Read well rights and determine gw-only structure acreage in 1950
+# TODO smalers 2021-01-23 need to enable something like this
+# ReadWellRightsFromStateMod(InputFile="ArkEx_Simple_HB20180529.wer")
+# FillCropPatternTSUsingWellRights(ID="*",IncludeSurfaceWaterSupply=False,CropType="*",FillStart=1950,FillEnd=1955,ParcelYear=1956)
+#
+# Step 5 -
+#      Fill SW structure acreage backward from 2003 back to 2000
+#      Linearly interpolate acreage for all structures between 2003, 2010, and 2015 snapshots
+#      Use 2015 and 2016 snapshots for their years
+#
+FillCropPatternTSRepeat(ID="*",CropType="*",FillStart=2000,FillEnd=2003,FillDirection=Backward)
+FillCropPatternTSInterpolate(ID="*",CropType="*",FillStart=2003,FillEnd=2010)
+FillCropPatternTSInterpolate(ID="*",CropType="*",FillStart=2010,FillEnd=2015)
+#
+# Step 6 - Set primary WDID of Demand Structure = 0, and structures with no acreage in HydroBase = 0
+SetCropPatternTS(ID="6700610",CropPattern="ALFALFA,0,CORN_GRAIN,0,SUGAR_BEETS,0,GRASS_PASTURE,0,VEGETABLES,0,SPRING_GRAIN,0",IrrigationMethod=Flood,SupplyType=Ground,ProcessWhen=Now)
+#
+# Step 7 - Translate crop names to Locally Calibrated based on structure location and elevation
+# ALFALFA
+TranslateCropPatternTS(ID="*",OldCropType="ALFALFA",NewCropType="ALFALFA.TR21")
+#
+# BARLEY - Spring Grain TR21 coefficients used in RGDSS and SPDSS to represent barley, oats, and wheat under the name "Small Grains"
+TranslateCropPatternTS(ID="*",OldCropType="BARLEY",NewCropType="SMALL_GRAINS.TR21")
+#
+# BLUEGRASS
+TranslateCropPatternTS(ID="*",OldCropType="BLUEGRASS",NewCropType="BLUEGRASS.POCHOP")
+#
+# CORN_GRAIN
+TranslateCropPatternTS(ID="*",OldCropType="CORN",NewCropType="CORN_GRAIN.TR21")
+#
+# DRY_BEANS
+TranslateCropPatternTS(ID="*",OldCropType="DRY_BEANS",NewCropType="DRY_BEANS.TR21")
+#
+# GRASS_PASTURE
+TranslateCropPatternTS(ID="*",OldCropType="GRASS_PASTURE",NewCropType="GRASS_PASTURE.TR21")
+#
+# ORCHARD_WO_COVER
+TranslateCropPatternTS(ID="*",OldCropType="ORCHARD_WO_COVER",NewCropType="ORCHARD_WO_COVER.TR21")
+#
+# POTATOES
+TranslateCropPatternTS(ID="*",OldCropType="POTATOES",NewCropType="POTATOES.TR21")
+#
+# SMALL_GRAINS
+TranslateCropPatternTS(ID="*",OldCropType="SMALL_GRAINS",NewCropType="SPRING_GRAIN.TR21")
+#
+# SNAP_BEANS
+TranslateCropPatternTS(ID="*",OldCropType="SNAP_BEANS",NewCropType="SNAP_BEANS.TR21")
+#
+# SOD_FARM
+TranslateCropPatternTS(ID="*",OldCropType="SOD_FARM",NewCropType="BLUEGRASS.POCHOP")
+#
+# SORGHUM_GRAIN
+TranslateCropPatternTS(ID="*",OldCropType="SORGHUM_GRAIN",NewCropType="SORGHUM_GRAIN.TR21")
+#
+# SUNFLOWER - CU monthly and annual amount for sunflower is fairly close to sorghum
+TranslateCropPatternTS(ID="*",OldCropType="SUNFLOWER",NewCropType="SORGHUM_GRAIN.TR21")
+#
+# SUGAR_BEETS
+TranslateCropPatternTS(ID="*",OldCropType="SUGAR_BEETS",NewCropType="SUGAR_BEETS.TR21")
+#
+# VEGETABLES
+TranslateCropPatternTS(ID="*",OldCropType="VEGETABLES",NewCropType="VEGETABLES.TR21")
+#
+# WHEAT_FALL AND WHEAT_SPRING - Spring Grain TR21 coefficients used in RGDSS and SPDSS to represent barley, oats, and wheat under the name "Small Grains"
+TranslateCropPatternTS(ID="*",OldCropType="WHEAT_FALL",NewCropType="SMALL_GRAINS.TR21")
+TranslateCropPatternTS(ID="*",OldCropType="WHEAT_SPRING",NewCropType="SMALL_GRAINS.TR21")
+#
+# Step 8 - Write final *.cds file
+# TODO smalers 2021-01-25 old file that can be removed when tests are confirmed
+# WriteCropPatternTSToStateCU(OutputFile="Results/ArkEx_Simple_HB20180529.cds",WriteHow=OverwriteFile)
+# Uncomment the following to regenerate expected results
+# WriteCropPatternTSToStateCU(OutputFile="ExpectedResults/Test_ReadCropPatternTSFromParcels_ArkEx_out.cds",WriteHow=OverwriteFile)
+WriteCropPatternTSToStateCU(OutputFile="Results/Test_ReadCropPatternTSFromParcels_ArkEx_out.cds",WriteHow=OverwriteFile)
+#
+# Also write the parcel data after prodessing for CDS.
+WriteParcelsToFile(OutputFile="Results/Test_ReadCropPatternTSFromParcels_ArkEx_ModelParcelSupply_AfterCDS_out.txt")
+WriteParcelsToFile(OutputFile="Results/Test_ReadCropPatternTSFromParcels_ArkEx_ModelParcelSupply_AfterCDS_Verbose_out.txt",Verbose=True)
+#
+# Compare the results
+CompareFiles(InputFile1="ExpectedResults/Test_ReadCropPatternTSFromParcels_ArkEx_out.cds",InputFile2="Results/Test_ReadCropPatternTSFromParcels_ArkEx_out.cds",IfDifferent=Warn)
+ReadTableFromDataStore(DataStore="HydroBase",Sql="select * from vw_CDSS_Wells where receipt = '9088775'",TableID="x")

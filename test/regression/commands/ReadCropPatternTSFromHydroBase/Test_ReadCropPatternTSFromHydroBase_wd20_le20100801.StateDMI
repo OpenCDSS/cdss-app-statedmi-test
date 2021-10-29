@@ -1,0 +1,18 @@
+# Test reading crop pattern TS (*.cds) data from HydroBase
+# - explicit diversion structures
+#
+# Old test that passed with the following:
+#@require datastore HydroBase <= 20100801
+#
+StartLog(LogFile="Results/Test_ReadCropPatternTSFromHydroBase_le20100801.StateDMI.log")
+RemoveFile(InputFile="Results\Test_ReadCropPatternTSFromHydroBase_le20100801_out.cds",IfNotFound=Ignore)
+SetOutputPeriod(OutputStart="1950",OutputEnd="2007")
+SetCULocation(ID="2000505",IfNotFound=Add)
+SetCULocation(ID="2000631",IfNotFound=Add)
+SetCULocation(ID="2000812",IfNotFound=Add)
+CreateCropPatternTSForCULocations(ID="*",Units="ACRE")
+ReadCropPatternTSFromHydroBase(ID="*")
+# Uncomment the following command to regenerate the expected results.
+# WriteCropPatternTSToStateCU(OutputFile="ExpectedResults/Test_ReadCropPatternTSFromHydroBase_le20100801_out.cds")
+WriteCropPatternTSToStateCU(OutputFile="Results/Test_ReadCropPatternTSFromHydroBase_le20100801_out.cds")
+CompareFiles(InputFile1="ExpectedResults/Test_ReadCropPatternTSFromHydroBase_le20100801_out.cds",InputFile2="Results/Test_ReadCropPatternTSFromHydroBase_le20100801_out.cds",IfDifferent=Warn)

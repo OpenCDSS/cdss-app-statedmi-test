@@ -1,0 +1,38 @@
+# Test reading crop pattern TS (*.cds) data from HydroBase
+# - cm2015 locations for various location types
+# - HydroBase has irrigated lands for 1993, 2000, 2005 in the requested period
+#
+# Works with the following:
+#@require datastore HydroBase >= 20200720
+#
+StartLog(LogFile="Results/Test_ReadCropPatternTSFromHydroBase_cm2015ex_ge20200720.StateDMI.log")
+RemoveFile(InputFile="Results\Test_ReadCropPatternTSFromHydroBase_cm2015ex_ge20200720_out.cds",IfNotFound=Ignore)
+SetOutputPeriod(OutputStart="1950",OutputEnd="2007")
+#
+# Define locations and collections
+#
+# Explicit structure
+SetCULocation(ID="3600507",IfNotFound=Add)
+# Aggregate with relatively small number of parts
+SetCULocation(ID="38_ADC040",IfNotFound=Add)
+SetDiversionAggregate(ID="38_ADC040",PartIDs="3800557,3800635,3800724,3800732,3800823,3800845,3800997")
+# System with relatively small number of parts
+# - Roan Creek No 2
+SetCULocation(ID="7000583_D",IfNotFound=Add)
+SetDiversionSystem(ID="7000583_D",PartIDs="7000583,7000507")
+# MultiStruct
+# - SMITH DITCH
+SetCULocation(ID="3600801",IfNotFound=Add)
+SetDiversionMultiStruct(ID="3600801",PartIDs="3600801,3600832")
+#
+# Create the crop pattern time series
+CreateCropPatternTSForCULocations(ID="*",Units="ACRE")
+ReadCropPatternTSFromHydroBase(ID="*")
+# Uncomment the following command to regenerate the expected results.
+WriteCropPatternTSToStateCU(OutputFile="ExpectedResults/Test_ReadCropPatternTSFromHydroBase_cm2015ex_ge20200720_out.cds")
+WriteCropPatternTSToStateCU(OutputFile="Results/Test_ReadCropPatternTSFromHydroBase_cm2015ex_ge20200720_out.cds")
+CompareFiles(InputFile1="ExpectedResults/Test_ReadCropPatternTSFromHydroBase_cm2015ex_ge20200720_out.cds",InputFile2="Results/Test_ReadCropPatternTSFromHydroBase_cm2015ex_ge20200720_out.cds",IfDifferent=Warn)
+#
+# The following show the raw data and can be used for validation and troubleshooting.
+# - read separate tables for each location in order to make it easier to add records
+ReadTableFromDataStore(DataStore="HydroBase",Sql="SELECT * from vw_CDSS_ParcelUseTSStructureToParcel where wd = 36 and (cal_year >= 1950 and cal_year <= 2007) and id in (507) order by id, cal_year, land_use",TableID="Test_ParcelUseTS_3600507")
