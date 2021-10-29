@@ -1,0 +1,54 @@
+StartLog(LogFile="Results/Test_ReadCropPatternTSFromParcels_cm2015ex_ge20200720.StateDMI.log")
+# Test reading crop pattern TS (*.cds) data from Parcels
+# - cm2015 locations for various location types
+# - HydroBase has irrigated lands for 1993, 2000, 2005 in the requested period
+# - see the similar test that uses ReadCropPatternTSFromHydroBase
+#
+# Works with the following:
+#@require datastore HydroBase >= 20200720
+#
+RemoveFile(InputFile="Results\Test_ReadCropPatternTSFromParcels_cm2015ex_ge20200720_out.cds",IfNotFound=Ignore)
+SetOutputPeriod(OutputStart="1950",OutputEnd="2007")
+#
+# Define locations and collections
+#
+# Explicit structure
+SetCULocation(ID="3600507",IfNotFound=Add)
+# Aggregate with relatively small number of parts
+SetCULocation(ID="38_ADC040",IfNotFound=Add)
+SetDiversionAggregate(ID="38_ADC040",PartIDs="3800557,3800635,3800724,3800732,3800823,3800845,3800997")
+# System with relatively small number of parts
+# - Roan Creek No 2
+SetCULocation(ID="7000583_D",IfNotFound=Add)
+SetDiversionSystem(ID="7000583_D",PartIDs="7000583,7000507")
+# MultiStruct
+# - SMITH DITCH
+SetCULocation(ID="3600801",IfNotFound=Add)
+SetDiversionMultiStruct(ID="3600801",PartIDs="3600801,3600832")
+#
+# Create the crop pattern time series
+CreateCropPatternTSForCULocations(ID="*",Units="ACRE")
+#
+# Read the crop pattern time series
+# - also write out the report file to inspect for validation
+ReadParcelsFromHydroBase(ID="*")
+ReadCropPatternTSFromParcels(ID="*")
+WriteParcelsToFile(OutputFile="Results/Test_ReadCropPatternTSFromParcels_cm2015ex_ge20200720_ModelParcelSuppply_Verbose_out.txt",Verbose=True)
+#
+# Uncomment the following command to regenerate the expected results.
+WriteCropPatternTSToStateCU(OutputFile="ExpectedResults/Test_ReadCropPatternTSFromHydroBase_cm2015ex_ge20200720_out.cds")
+WriteCropPatternTSToStateCU(OutputFile="Results/Test_ReadCropPatternTSFromHydroBase_cm2015ex_ge20200720_out.cds")
+CompareFiles(InputFile1="ExpectedResults/Test_ReadCropPatternTSFromHydroBase_cm2015ex_ge20200720_out.cds",InputFile2="Results/Test_ReadCropPatternTSFromHydroBase_cm2015ex_ge20200720_out.cds",IfDifferent=Warn)
+#
+# The following show the raw data and can be used for validation and troubleshooting.
+# - read separate tables for each location in order to make it easier to add records
+# ReadTableFromDataStore(DataStore="HydroBase",Sql="SELECT * from vw_CDSS_ParcelUseTSStructureToParcel where wd = 36 and (cal_year >= 1950 and cal_year <= 2007) and id in (507) order by id, cal_year, land_use",TableID="Test_ParcelUseTS_3600507")
+#
+# Use the following for troubleshooting
+# ReadTableFromDataStore(DataStore="HydroBase",Sql="select * from vw_CDSS_ParcelUseTS where parcel_id = 53600575",TableID="Test_ParcelUseTS")
+ReadTableFromDataStore(DataStore="HydroBase",Sql="select * from vw_CDSS_ParcelUseTSStructureToParcel where cal_year = 2000 and parcel_id = 53600574",TableID="Test_ParcelUseTS2")
+# ReadTableFromDataStore(DataStore="HydroBase",Sql="select * from vw_CDSS_ParcelUseTSStructureToParcel where wd = 36 and id = 507 order by cal_year",TableID="Test_ParcelUseTS3")
+# ReadTableFromDataStore(DataStore="HydroBase",Sql="select * from vw_CDSS_Structure where wd = 36 and id = 507",TableID="Test_structure")
+# ReadTableFromDataStore(DataStore="HydroBase",Sql="select * from vw_CDSS_ParcelUseTSStructureToParcel where wd = 36 and id = 507 and cal_year = 2000",TableID="Test_ParcelUseTSStructureToParcel")
+# ReadTableFromDataStore(DataStore="HydroBase",Sql="select * from vw_CDSS_ParcelUseTSStructureToParcel",TableID="Test_ParcelUseTS")
+# ReadTableFromDataStore(DataStore="HydroBase",Sql="select * from vw_CDSS_ParcelUseTSStructureToParcel where irrig_type = 'UNKNOWN'",TableID="Test_Table")

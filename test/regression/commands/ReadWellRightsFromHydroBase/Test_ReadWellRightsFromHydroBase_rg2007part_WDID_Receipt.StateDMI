@@ -2,8 +2,8 @@
 # - aggregates are lists of WDIDs and receipts, which is the new simple approach
 # - use Arkansas structures for hand-picked examples
 # - use in-memory definition of structures (not list files)
-StartLog(LogFile="Results/Test_ReadWellRightsFromHydroBase.StateDMI.log")
-RemoveFile(InputFile="Results\Test_ReadWellRightsFromHydroBase_rg2007part_out.csv")
+StartLog(LogFile="Results/Test_ReadWellRightsFromHydroBase_rg2007part_WDID_Receipt.StateDMI.log")
+RemoveFile(InputFile="Results\Test_ReadWellRightsFromHydroBase_rg2007part_WDID_Receipt_out.csv")
 ####################################################
 # Start defining test stations and aggregate information...
 # The selected locations represent the combinations of cases to test but are
@@ -29,6 +29,6 @@ SetWellAggregate(ID="20URF24",Year=1998,Div=3,PartType=Parcel,PartIDs="10295,103
 ####################################################
 ReadWellRightsFromHydroBase(ID="*",IDFormat="HydroBaseID",Div="3",DefaultAppropriationDate="2006-12-31",DefineRightHow=RightIfAvailable)
 # Uncomment the following command to regenerate the expected results.
-# WriteWellRightsToList(OutputFile="ExpectedResults/Test_ReadWellRightsFromHydroBase_rg2007part_out.csv")
-WriteWellRightsToList(OutputFile="Results/Test_ReadWellRightsFromHydroBase_rg2007part_out.csv")
-CompareFiles(InputFile1="ExpectedResults/Test_ReadWellRightsFromHydroBase_rg2007part_out.csv",InputFile2="Results/Test_ReadWellRightsFromHydroBase_rg2007part_out.csv",IfDifferent=Warn)
+# WriteWellRightsToList(OutputFile="ExpectedResults/Test_ReadWellRightsFromHydroBase_rg2007part_WDID_Receipt_out.csv")
+WriteWellRightsToList(OutputFile="Results/Test_ReadWellRightsFromHydroBase_rg2007part_WDID_Receipt_out.csv")
+CompareFiles(InputFile1="ExpectedResults/Test_ReadWellRightsFromHydroBase_rg2007part_WDID_Receipt_out.csv",InputFile2="Results/Test_ReadWellRightsFromHydroBase_rg2007part_WDID_Receipt_out.csv",IfDifferent=Warn)

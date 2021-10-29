@@ -1,5 +1,8 @@
 # Test reading crop pattern time series data from HydroBase:
 # - this is a small number of groundwater-only structures with aggregation using WDID parts
+# Disable since other tests are more current.
+# TODO smalers 2020-01-24 delete when the other tests are implemented
+#@enabled False
 StartLog(LogFile="Results/Test_ReadCropPatternTSFromHydroBase_ArkExGwOnly.StateDMI.log")
 RemoveFile(InputFile="Results\Test_ReadCropPatternTSFromHydroBase_ArkExGwOnly_out.ipy",IfNotFound=Ignore)
 SetOutputPeriod(OutputStart="2000",OutputEnd="2016")

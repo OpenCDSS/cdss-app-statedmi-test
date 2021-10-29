@@ -1,0 +1,25 @@
+# Test reading crop pattern TS (*.cds) data from HydroBase
+# - explicit diversion structures
+# - HydroBase has irrigated lands for 1998, 2002, 2005 in the requested period
+#
+# Works with the following:
+#@require datastore HydroBase >= 20200720
+#
+# Disable because Rio Grande irrigated lands procession for Rio Grande wells is not working.
+#@enabled False
+#
+StartLog(LogFile="Results/Test_ReadCropPatternTSFromHydroBase_ge20200720.StateDMI.log")
+RemoveFile(InputFile="Results\Test_ReadCropPatternTSFromHydroBase_ge20200720_out.cds",IfNotFound=Ignore)
+SetOutputPeriod(OutputStart="1950",OutputEnd="2007")
+SetCULocation(ID="2000505",IfNotFound=Add)
+SetCULocation(ID="2000631",IfNotFound=Add)
+SetCULocation(ID="2000812",IfNotFound=Add)
+CreateCropPatternTSForCULocations(ID="*",Units="ACRE")
+ReadCropPatternTSFromHydroBase(ID="*")
+# Uncomment the following command to regenerate the expected results.
+WriteCropPatternTSToStateCU(OutputFile="ExpectedResults/Test_ReadCropPatternTSFromHydroBase_ge20200720_out.cds")
+WriteCropPatternTSToStateCU(OutputFile="Results/Test_ReadCropPatternTSFromHydroBase_ge20200720_out.cds")
+CompareFiles(InputFile1="ExpectedResults/Test_ReadCropPatternTSFromHydroBase_ge20200720_out.cds",InputFile2="Results/Test_ReadCropPatternTSFromHydroBase_ge20200720_out.cds",IfDifferent=Warn)
+#
+# The following show the raw data and can be used for troubleshooting
+# ReadTableFromDataStore(DataStore="HydroBase",Sql="SELECT * from vw_CDSS_ParcelUseTSStructureToParcel where wd = 20 and (cal_year >= 1950 and cal_year <= 2007) and id in (505, 631, 812) order by id, cal_year, land_use",TableID="Test_ParcelUseTS")

@@ -1,0 +1,52 @@
+StartLog(LogFile="ArkEx_IPY.StateDMI.log")
+# CDS command file for Arkansas River Example - Testing New StateDMI functionality
+#
+# Step 1 - Set output period and read CU Locations from list
+SetOutputPeriod(OutputStart="01/2000",OutputEnd="12/2016")
+ReadCULocationsFromList(ListFile="ArkEx_StructList.csv",IDCol=1)
+#
+# Step 2 - Read SW aggregates, GW aggregates, and divsystems
+SetDiversionSystemFromList(ListFile="ArkEx_SWDivSys.csv",IDCol="1",NameCol="2",PartIDsCol="3",PartsListedHow=InRow)
+SetDiversionAggregateFromList(ListFile="ArkEx_SWAgg.csv",IDCol="1",NameCol="2",PartIDsCol="3",PartsListedHow=InColumn)
+#
+SetWellSystemFromList(ListFile="ArkEx_GWAgg_Only.csv",PartType=Well,IDCol="1",PartIDsCol="2",PartIDTypeColumn="3",PartsListedHow=InColumn,IfNotFound=Warn)
+#
+# Step 3 - Create form for *.ipy file
+CreateIrrigationPracticeTSForCULocations(ID="*")
+#
+# Step 4 - set max flood and surface water efficiencies and GWmode - NOT in HydroBase
+SetIrrigationPracticeTS(ID="*",SetStart=2000,SetEnd=2016,FloodAppEffMax=.6,SprinklerAppEffMax=.8,GWMode=2)
+#
+# Step 5 - Read well rights file and Set Max pumping
+ReadWellRightsFromStateMod(InputFile="ArkEx_Simple_HB20180529.wer")
+SetIrrigationPracticeTSPumpingMaxUsingWellRights(ID="*",IncludeSurfaceWaterSupply=True,IncludeGroundwaterOnlySupply="True",NumberOfDaysInMonth=30.4)
+#
+# Step 6 - Read category acreage from HydroBase
+ReadIrrigationPracticeTSFromHydroBase(ID="*",Div="2")
+#
+# Step 7 - Read total acreage from *.cds file and Set total for *.ipy file
+ReadCropPatternTSFromStateCU(InputFile="ArkEx_Simple_HB20180529.cds")
+SetIrrigationPracticeTSTotalAcreageToCropPatternTSTotalAcreage(ID="*")
+#
+# Step 8 - Estimate 1950 ground water acreage based on active wells as defined in the non-merged *.wer file
+ReadWellRightsFromStateMod(InputFile="ArkEx_Simple_HB20180529.wer")
+FillIrrigationPracticeTSAcreageUsingWellRights(ID="*",IncludeSurfaceWaterSupply=True,IncludeGroundwaterOnlySupply="True",FillStart=1950,FillEnd=1955,ParcelYear=1956)
+#
+# Step 9 - Fill Interpolate Acreage Type (SW and GW) 1956-2013
+FillIrrigationPracticeTSInterpolate(ID="*",DataType="CropArea-GroundWater",FillStart="2000",FillEnd="2003")
+FillIrrigationPracticeTSInterpolate(ID="*",DataType="CropArea-GroundWater",FillStart="2003",FillEnd="2010")
+FillIrrigationPracticeTSInterpolate(ID="*",DataType="CropArea-GroundWater",FillStart="2010",FillEnd="2015")
+#
+FillIrrigationPracticeTSInterpolate(ID="*",DataType="CropArea-SurfaceWaterOnlySprinkler",FillStart="2000",FillEnd="2003")
+FillIrrigationPracticeTSInterpolate(ID="*",DataType="CropArea-SurfaceWaterOnlySprinkler",FillStart="2003",FillEnd="2010")
+FillIrrigationPracticeTSInterpolate(ID="*",DataType="CropArea-SurfaceWaterOnlySprinkler",FillStart="2010",FillEnd="2015")
+#
+FillIrrigationPracticeTSInterpolate(ID="*",DataType="CropArea-GroundWaterSprinkler",FillStart="2000",FillEnd="2003")
+FillIrrigationPracticeTSInterpolate(ID="*",DataType="CropArea-GroundWaterSprinkler",FillStart="2003",FillEnd="2010")
+FillIrrigationPracticeTSInterpolate(ID="*",DataType="CropArea-GroundWaterSprinkler",FillStart="2010",FillEnd="2015")
+#
+# Step 10 - Set Acreage = 0
+SetIrrigationPracticeTS(ID="6700610",SetStart=2000,SetEnd=2016,AcresSWFlood=0,AcresSWSprinkler=0,AcresGWFlood=0,AcresGWSprinkler=0,PumpingMax=0,AcresTotal=0)
+#
+# Step 11 - Write final ipy file
+WriteIrrigationPracticeTSToStateCU(OutputFile="ArkEx_Simple_HB20180529.ipy,WriteHow=OverwriteFile")
