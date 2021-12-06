@@ -1,4 +1,5 @@
-# Test creating irrigation practice time series for CU locations
+# Test creating irrigation practice time series for CU locations:
+# - set some acreage data to make sure totals can be computed and warning is avoided writing
 StartLog(LogFile="Results/Test_CreateIrrigationPracticeTSForCULocations.StateDMI.log")
 RemoveFile(InputFile="Results\Test_CreateIrrigationPracticeTSForCULocations_out.ipy")
 SetCULocation(ID="2000505",IfNotFound=Add)
@@ -6,7 +7,8 @@ SetCULocation(ID="2000623",IfNotFound=Add)
 SetCULocation(ID="2000812",IfNotFound=Add)
 SetOutputPeriod(OutputStart="2000",OutputEnd="2001")
 CreateIrrigationPracticeTSForCULocations(ID="*")
+SetIrrigationPracticeTS(ID="*",AcresSWFlood=100,AcresSWSprinkler=200,AcresGWFlood=300,AcresGWSprinkler=400)
 # Uncomment the following command to regenerate the expected results.
 # WriteIrrigationPracticeTSToStateCU(OutputFile="ExpectedResults/Test_CreateIrrigationPracticeTSForCULocations_out.ipy")
 WriteIrrigationPracticeTSToStateCU(OutputFile="Results/Test_CreateIrrigationPracticeTSForCULocations_out.ipy")
-CompareFiles(InputFile1="ExpectedResults/Test_CreateIrrigationPracticeTSForCULocations_out.ipy",InputFile2="Results/Test_CreateIrrigationPracticeTSForCULocations_out.ipy",WarnIfDifferent=True)
+CompareFiles(InputFile1="ExpectedResults/Test_CreateIrrigationPracticeTSForCULocations_out.ipy",InputFile2="Results/Test_CreateIrrigationPracticeTSForCULocations_out.ipy",IfDifferent=Warn)

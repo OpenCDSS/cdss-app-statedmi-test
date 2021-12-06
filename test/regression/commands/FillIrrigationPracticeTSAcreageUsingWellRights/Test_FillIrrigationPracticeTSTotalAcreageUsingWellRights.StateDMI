@@ -1,4 +1,5 @@
-# Test filling irrigation practice acres using well rights
+# Test filling irrigation practice acres using well rights:
+# - TODO smalers 2021-12-05 need to figure out how to deal with warning about total being missing
 StartLog(LogFile="Results/Test_FillIrrigationPracticeTSAcreageUsingWellRights.StateDMI.log")
 RemoveFile(InputFile="Results\Test_FillIrrigationPracticeTSAcreageUsingWellRights_out.ipy")
 SetCULocation(ID="2000505",IfNotFound=Add)

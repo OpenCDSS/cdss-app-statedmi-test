@@ -1,0 +1,5 @@
+# Ignore test suite output
+/*out*
+/*.out
+/*StateDMI*
+/*.StateDMI

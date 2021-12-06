@@ -14,4 +14,4 @@ FillIrrigationPracticeTSInterpolate(ID="*")
 # Uncomment the following command to regenerate the expected results.
 # WriteIrrigationPracticeTSToStateCU(OutputFile="ExpectedResults/Test_FillIrrigationPracticeTSInterpolate_out.ipy")
 WriteIrrigationPracticeTSToStateCU(OutputFile="Results/Test_FillIrrigationPracticeTSInterpolate_out.ipy")
-CompareFiles(InputFile1="ExpectedResults/Test_FillIrrigationPracticeTSInterpolate_out.ipy",InputFile2="Results/Test_FillIrrigationPracticeTSInterpolate_out.ipy",WarnIfDifferent=True)
+CompareFiles(InputFile1="ExpectedResults/Test_FillIrrigationPracticeTSInterpolate_out.ipy",InputFile2="Results/Test_FillIrrigationPracticeTSInterpolate_out.ipy",IfDifferent=Warn)
