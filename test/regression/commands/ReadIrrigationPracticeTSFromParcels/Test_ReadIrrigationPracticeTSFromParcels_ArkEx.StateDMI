@@ -1,4 +1,4 @@
-StartLog(LogFile="ArkEx_IPY.StateDMI.log")
+StartLog(LogFile="Results/ArkEx_IPY.StateDMI.log")
 # CDS command file for Arkansas River Example - Testing New StateDMI functionality
 #
 # Step 1 - Set output period and read CU Locations from list
@@ -49,4 +49,4 @@ FillIrrigationPracticeTSInterpolate(ID="*",DataType="CropArea-GroundWaterSprinkl
 SetIrrigationPracticeTS(ID="6700610",SetStart=2000,SetEnd=2016,AcresSWFlood=0,AcresSWSprinkler=0,AcresGWFlood=0,AcresGWSprinkler=0,PumpingMax=0,AcresTotal=0)
 #
 # Step 11 - Write final ipy file
-WriteIrrigationPracticeTSToStateCU(OutputFile="ArkEx_Simple_HB20180529.ipy,WriteHow=OverwriteFile")
+WriteIrrigationPracticeTSToStateCU(OutputFile="Results/ArkEx_Simple_HB20180529.ipy,WriteHow=OverwriteFile")
