@@ -29,7 +29,7 @@ SetDiversionMultiStruct(ID="3600801",PartIDs="3600801,3600832")
 CreateCropPatternTSForCULocations(ID="*",Units="ACRE")
 ReadCropPatternTSFromHydroBase(ID="*")
 # Uncomment the following command to regenerate the expected results.
-WriteCropPatternTSToStateCU(OutputFile="ExpectedResults/Test_ReadCropPatternTSFromHydroBase_cm2015ex_ge20200720_out.cds")
+#WriteCropPatternTSToStateCU(OutputFile="ExpectedResults/Test_ReadCropPatternTSFromHydroBase_cm2015ex_ge20200720_out.cds")
 WriteCropPatternTSToStateCU(OutputFile="Results/Test_ReadCropPatternTSFromHydroBase_cm2015ex_ge20200720_out.cds")
 CompareFiles(InputFile1="ExpectedResults/Test_ReadCropPatternTSFromHydroBase_cm2015ex_ge20200720_out.cds",InputFile2="Results/Test_ReadCropPatternTSFromHydroBase_cm2015ex_ge20200720_out.cds",IfDifferent=Warn)
 #
