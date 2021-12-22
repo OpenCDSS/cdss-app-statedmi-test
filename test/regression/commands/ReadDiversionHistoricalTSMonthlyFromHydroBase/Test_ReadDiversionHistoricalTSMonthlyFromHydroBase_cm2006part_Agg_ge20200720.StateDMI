@@ -16,7 +16,7 @@ SetDiversionAggregate(ID="39_ADC041",PartIDs="390500,390501,390503,390504,390510
 # Use diversion comments, no filling
 ReadDiversionHistoricalTSMonthlyFromHydroBase(ID="*")
 # Uncomment the following command to regenerate the expected results.
-WriteDiversionHistoricalTSMonthlyToStateMod(OutputFile="ExpectedResults/Test_ReadDiversionHistoricalTSMonthlyFromHydroBase_cm2006part_Agg_ge20200720_out.ddh")
+#WriteDiversionHistoricalTSMonthlyToStateMod(OutputFile="ExpectedResults/Test_ReadDiversionHistoricalTSMonthlyFromHydroBase_cm2006part_Agg_ge20200720_out.ddh")
 WriteDiversionHistoricalTSMonthlyToStateMod(OutputFile="Results/Test_ReadDiversionHistoricalTSMonthlyFromHydroBase_cm2006part_Agg_ge20200720_out.ddh")
 CompareFiles(InputFile1="ExpectedResults/Test_ReadDiversionHistoricalTSMonthlyFromHydroBase_cm2006part_Agg_ge20200720_out.ddh",InputFile2="Results/Test_ReadDiversionHistoricalTSMonthlyFromHydroBase_cm2006part_Agg_ge20200720_out.ddh",IfDifferent=Warn)
 # Use the following to query data to check results.
