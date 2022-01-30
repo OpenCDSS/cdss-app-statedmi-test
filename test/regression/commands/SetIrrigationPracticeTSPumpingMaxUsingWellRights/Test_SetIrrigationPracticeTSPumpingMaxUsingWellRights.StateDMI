@@ -19,6 +19,6 @@ SetWellRight(ID="2000812.02",StationID="2000812",AdministrationNumber=52500.0000
 # Set to the well rights.
 SetIrrigationPracticeTSPumpingMaxUsingWellRights(ID="*")
 # Uncomment the following command to regenerate the expected results.
-# WriteIrrigationPracticeTSToStateCU(OutputFile="ExpectedResults/Test_SetIrrigationPracticeTSPumpingMaxUsingWellRights_out.ipy")
-WriteIrrigationPracticeTSToStateCU(OutputFile="Results/Test_SetIrrigationPracticeTSPumpingMaxUsingWellRights_out.ipy")
-CompareFiles(InputFile1="ExpectedResults/Test_SetIrrigationPracticeTSPumpingMaxUsingWellRights_out.ipy",InputFile2="Results/Test_SetIrrigationPracticeTSPumpingMaxUsingWellRights_out.ipy",WarnIfDifferent=True)
+# WriteIrrigationPracticeTSToStateCU(OutputFile="ExpectedResults/Test_SetIrrigationPracticeTSPumpingMaxUsingWellRights_out.ipy",CheckData=False)
+WriteIrrigationPracticeTSToStateCU(OutputFile="Results/Test_SetIrrigationPracticeTSPumpingMaxUsingWellRights_out.ipy",CheckData=False)
+CompareFiles(InputFile1="ExpectedResults/Test_SetIrrigationPracticeTSPumpingMaxUsingWellRights_out.ipy",InputFile2="Results/Test_SetIrrigationPracticeTSPumpingMaxUsingWellRights_out.ipy",IfDifferent=Warn)
