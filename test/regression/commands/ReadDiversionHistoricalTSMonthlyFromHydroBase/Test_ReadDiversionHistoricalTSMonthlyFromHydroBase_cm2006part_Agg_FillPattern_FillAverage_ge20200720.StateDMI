@@ -3,10 +3,11 @@
 # Do not use diversion comments
 # Fill parts with pattern
 # Fill parts with historical average
+# Use shorter filename because exceeds Windows 260 for the path.
 #@require datastore HydroBase >= 20200720
 # - known to work with Hydrobase version 20200720
-StartLog(LogFile="Results/Test_ReadDiversionHistoricalTSMonthlyFromHydroBase_cm2006part_Agg_FillPattern_FillAverage_ge20200720.StateDMI.log")
-RemoveFile(InputFile="Results\Test_ReadDiversionHistoricalTSMonthlyFromHydroBase_cm2006part_Agg_FillPattern_FillAverage_ge20200720_out.ddh",IfNotFound=Ignore)
+StartLog(LogFile="Results/Test_ReadDiversionHistoricalTSMonthlyFromHydroBase_cm2006part_Agg_Pat_Ave_ge20200720.StateDMI.log")
+RemoveFile(InputFile="Results\Test_ReadDiversionHistoricalTSMonthlyFromHydroBase_cm2006part_Agg_Pat_Ave_ge20200720_out.ddh",IfNotFound=Ignore)
 SetOutputPeriod(OutputStart="1949-10",OutputEnd="2004-09")
 SetOutputYearType(OutputYearType=Water)
 ####################################################
@@ -17,6 +18,6 @@ SetDiversionAggregate(ID="39_ADC041",PartIDs="390500,390501,390503,390504,390510
 ReadPatternFile(InputFile="Data\fill2005.pat")
 ReadDiversionHistoricalTSMonthlyFromHydroBase(ID="*",UseDiversionComments=False,PatternID="09365500",FillPatternOrder=1,FillAverageOrder=2)
 # Uncomment the following command to regenerate the expected results.
-# WriteDiversionHistoricalTSMonthlyToStateMod(OutputFile="ExpectedResults/Test_ReadDiversionHistoricalTSMonthlyFromHydroBase_cm2006part_Agg_FillPattern_FillAverage_ge20200720_out.ddh")
-WriteDiversionHistoricalTSMonthlyToStateMod(OutputFile="Results/Test_ReadDiversionHistoricalTSMonthlyFromHydroBase_cm2006part_Agg_FillPattern_FillAverage_ge20200720_out.ddh")
-CompareFiles(InputFile1="ExpectedResults/Test_ReadDiversionHistoricalTSMonthlyFromHydroBase_cm2006part_Agg_FillPattern_FillAverage_ge20200720_out.ddh",InputFile2="Results/Test_ReadDiversionHistoricalTSMonthlyFromHydroBase_cm2006part_Agg_FillPattern_FillAverage_ge20200720_out.ddh",IfDifferent=Warn)
+# WriteDiversionHistoricalTSMonthlyToStateMod(OutputFile="ExpectedResults/Test_ReadDiversionHistoricalTSMonthlyFromHydroBase_cm2006part_Agg_Pat_Ave_ge20200720_out.ddh")
+WriteDiversionHistoricalTSMonthlyToStateMod(OutputFile="Results/Test_ReadDiversionHistoricalTSMonthlyFromHydroBase_cm2006part_Agg_Pat_Ave_ge20200720_out.ddh")
+CompareFiles(InputFile1="ExpectedResults/Test_ReadDiversionHistoricalTSMonthlyFromHydroBase_cm2006part_Agg_Pat_Ave_ge20200720_out.ddh",InputFile2="Results/Test_ReadDiversionHistoricalTSMonthlyFromHydroBase_cm2006part_Agg_Pat_Ave_ge20200720_out.ddh",IfDifferent=Warn)
