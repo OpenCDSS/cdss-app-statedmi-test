@@ -1,0 +1,13 @@
+StartLog(LogFile="Results/Create-RunTestSuite-Commands.tstool.log")
+#
+# Create the regression test runner for the
+# StateDMI/test/regression/TestSuites/commands files.
+#
+# Generate RunCommands() commands and append to the commands from above.
+# Command files that start with 'Test_' (old naming convention) and
+# 'test-' (new naming convention) are included in the output.
+#
+# =======================================================================================================
+#  See the repository issues for outstanding test problems.
+# =======================================================================================================
+CreateRegressionTestCommandFile(SearchFolder="../../../commands",OutputFile="../run/run-regression-test-commands.statedmi",SetupCommandFile="include/create-run-test-suite-commands-setup.statedmi",TestResultsFile="results/run-regression-test-commands-out-${NowString}.txt",EndCommandFile="include/create-run-test-suite-commands-end.statedmi",Append="False",IncludeTestSuite="*",IncludeOS="Windows",TestResultsTableID="TestResults")
