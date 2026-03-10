@@ -1,0 +1,20 @@
+StartLog(LogFile="Results/Test_ReadDiversionHistoricalTSMonthlyFromHydroBase_7200879_CarryForwardFalse.statedmi.log")
+# Test reading diversion historical TS monthly data from HydroBase for structure 7200879:
+# - use the defaults for reading
+# - carry forward is disabled
+# - fully missing irrigation years will be missing
+#@require datastore HydroBase >= 20251130
+RemoveFile(InputFile="Results\Test_ReadDiversionHistoricalTSMonthlyFromHydroBase_7200879_CarryForwardFalse_out.ddh",IfNotFound=Ignore)
+SetOutputPeriod(OutputStart="1985-11",OutputEnd="2024-10")
+SetOutputYearType(OutputYearType=Water)
+####################################################
+#
+SetDiversionStation(ID="7200879",IfNotFound=Add)
+####################################################
+# Use the defaults to read
+# Use diversion comments, no filling
+ReadDiversionHistoricalTSMonthlyFromHydroBase(ID="*",UseDiversionComments=False,FillCarryForward="False")
+WriteDiversionHistoricalTSMonthlyToStateMod(OutputFile="Results/Test_ReadDiversionHistoricalTSMonthlyFromHydroBase_7200879_CarryForwardFalse_out.ddh")
+# Uncomment the following command to regenerate the expected results.
+# CopyFile(InputFile="Results/Test_ReadDiversionHistoricalTSMonthlyFromHydroBase_7200879_CarryForwardFalse_out.ddh",OutputFile="ExpectedResults/Test_ReadDiversionHistoricalTSMonthlyFromHydroBase_7200879_CarryForwardFalse_out.ddh")
+CompareFiles(InputFile1="ExpectedResults/Test_ReadDiversionHistoricalTSMonthlyFromHydroBase_7200879_CarryForwardFalse_out.ddh",InputFile2="Results/Test_ReadDiversionHistoricalTSMonthlyFromHydroBase_7200879_CarryForwardFalse_out.ddh",IfDifferent=Warn)
